@@ -462,11 +462,33 @@ button{
 /* ================= CHAT ================= */
 
 .chat-box{
-  height:330px;
+  height:calc(100vh - 260px);
+  min-height:450px;
   overflow-y:auto;
   display:flex;
   flex-direction:column;
   gap:12px;
+  padding:10px;
+}
+
+#chat{
+  min-height:calc(100vh - 150px);
+}
+
+#chat .card{
+  min-height:calc(100vh - 180px);
+  display:flex;
+  flex-direction:column;
+}
+
+#chat .chat-box{
+  flex:1;
+}
+
+.chat-input{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
 }
 
 .message{
