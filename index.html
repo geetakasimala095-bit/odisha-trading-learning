@@ -1,333 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#0b1220">
-
-<meta name="description"
-      content="Odisha Trading Learning - Live Charts and Paper Trading">
-
-<title>Odisha Trading Learning</title>
+<title>Odisha Trading Learning | Babulu Naik</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-html,
-body{
+html,body{
   width:100%;
   min-height:100%;
+  background:#07111f;
+  color:#e5edf7;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#0b1220;
-  color:#f1f5f9;
+  overflow-x:hidden;
 }
 
-button,
-input,
-select{
-  font-family:inherit;
+button,input,select{
+  font:inherit;
 }
 
-
-/* =====================================================
-   APP
-===================================================== */
+button{
+  cursor:pointer;
+}
 
 .app{
   min-height:100vh;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header{
-  position:sticky;
+  height:64px;
+  position:fixed;
   top:0;
+  left:0;
+  right:0;
   z-index:1000;
-
-  height:72px;
-
-  background:#111a2e;
-  border-bottom:1px solid #24304a;
-
-  padding:10px 18px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
+  padding:0 18px;
+  background:#0b1627;
+  border-bottom:1px solid #1d2c40;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo-icon{
-  width:42px;
-  height:42px;
-
-  border-radius:12px;
-
-  background:#16a34a;
-
+.brand-logo{
+  width:40px;
+  height:40px;
+  border-radius:11px;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:22px;
+  background:#16a34a;
+  font-size:21px;
 }
 
-.logo h1{
-  font-size:17px;
+.brand-title{
+  font-size:16px;
+  font-weight:800;
 }
 
-.logo p{
-  color:#94a3b8;
+.brand-sub{
+  color:#7f91a8;
   font-size:10px;
-  margin-top:3px;
+  margin-top:2px;
 }
 
-.demo-badge{
-  background:#172554;
-  color:#93c5fd;
-
-  border:1px solid #1d4ed8;
-
-  padding:7px 11px;
-
+.demo{
+  border:1px solid #2563eb;
+  background:#101f3b;
+  color:#7db4ff;
   border-radius:20px;
-
+  padding:7px 11px;
   font-size:10px;
-  font-weight:bold;
+  font-weight:800;
 }
 
-
-/* =====================================================
-   MAIN
-===================================================== */
+/* MAIN */
 
 .main{
-  width:100%;
-  max-width:1250px;
-
-  margin:auto;
-
-  padding:22px 16px 100px;
+  padding-top:64px;
+  padding-bottom:72px;
 }
 
 .page{
   display:none;
+  max-width:1250px;
+  margin:auto;
+  padding:22px 18px;
 }
 
 .page.active{
   display:block;
 }
 
-.page-title{
+.title{
   font-size:25px;
+  font-weight:800;
   margin-bottom:5px;
 }
 
-.page-subtitle{
-  color:#94a3b8;
-  font-size:13px;
+.subtitle{
+  color:#8292a8;
+  font-size:12px;
   margin-bottom:18px;
 }
 
-
-/* =====================================================
-   CARD
-===================================================== */
+/* CARDS */
 
 .card{
-  background:#111a2e;
-  border:1px solid #24304a;
-  border-radius:16px;
-  padding:18px;
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:15px;
+  padding:17px;
 }
 
 .card-title{
   font-size:14px;
-  font-weight:bold;
-  margin-bottom:14px;
+  font-weight:800;
+  margin-bottom:13px;
 }
 
+/* HOME */
 
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.balance-card{
-  background:linear-gradient(135deg,#123524,#10251c);
-
-  border:1px solid #166534;
+.balance{
+  background:linear-gradient(135deg,#0b3923,#0b2119);
+  border:1px solid #176b3a;
   border-radius:18px;
-
-  padding:20px;
-
-  margin-bottom:18px;
+  padding:21px;
+  margin-bottom:15px;
 }
 
 .balance-label{
-  color:#86efac;
-  font-size:12px;
+  color:#74e6a0;
+  font-size:11px;
 }
 
-.balance{
-  font-size:31px;
-  font-weight:bold;
+.balance-value{
+  font-size:32px;
+  font-weight:900;
   margin:7px 0;
 }
 
 .balance-note{
-  color:#94a3b8;
-  font-size:11px;
+  color:#7f91a8;
+  font-size:10px;
 }
 
-.stats-grid{
+.stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
-
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
-.stat-card{
-  background:#111a2e;
-  border:1px solid #24304a;
-  border-radius:15px;
-
-  padding:15px;
+.stat{
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:14px;
+  padding:14px;
 }
 
 .stat-label{
-  color:#94a3b8;
-  font-size:11px;
+  color:#7f91a8;
+  font-size:10px;
 }
 
 .stat-value{
-  font-size:19px;
-  font-weight:bold;
-  margin-top:8px;
+  margin-top:7px;
+  font-size:18px;
+  font-weight:800;
 }
 
-.green{
-  color:#22c55e;
-}
+.green{color:#22c55e}
+.red{color:#ef4444}
+.yellow{color:#facc15}
+.blue{color:#60a5fa}
 
-.red{
-  color:#ef4444;
-}
-
-.yellow{
-  color:#facc15;
-}
-
-.blue{
-  color:#60a5fa;
-}
-
-
-/* =====================================================
-   GRID
-===================================================== */
-
-.two-grid{
+.grid2{
   display:grid;
   grid-template-columns:1fr 1fr;
-
-  gap:18px;
-
-  margin-top:18px;
+  gap:15px;
+  margin-top:15px;
 }
 
+/* BUTTONS */
 
-/* =====================================================
-   LIVE CHART
-===================================================== */
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:10px 14px;
+  color:white;
+  font-size:11px;
+  font-weight:800;
+}
 
-.chart-toolbar{
+.btn-green{
+  background:#16a34a;
+}
+
+.btn-red{
+  background:#dc2626;
+}
+
+.btn-blue{
+  background:#2563eb;
+}
+
+.btn-dark{
+  background:#172438;
+  border:1px solid #293b53;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+/* CHART */
+
+.chart-page{
+  max-width:none;
+  width:100%;
+  padding:0;
+}
+
+.chart-header{
+  height:52px;
+  background:#0b1627;
+  border-bottom:1px solid #1d2c40;
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  gap:10px;
-
-  margin-bottom:10px;
+  padding:0 12px;
 }
 
 .chart-symbol{
+  font-weight:800;
+  font-size:13px;
+}
+
+.chart-actions{
   display:flex;
-  gap:8px;
-  align-items:center;
+  gap:7px;
 }
 
-.chart-symbol select{
-  background:#0b1220;
-  color:white;
-
-  border:1px solid #334155;
-
-  border-radius:9px;
-
-  padding:9px 12px;
-
-  outline:none;
-}
-
-.chart-full-btn{
-  background:#1e293b;
-  color:#e2e8f0;
-
-  border:1px solid #334155;
-
-  border-radius:9px;
-
-  padding:9px 12px;
-
-  cursor:pointer;
-}
-
-
-/* IMPORTANT */
-
-.chart-card{
+.chart-wrap{
   width:100%;
-
-  padding:8px;
-
-  height:calc(100vh - 185px);
-
-  min-height:540px;
-
-  overflow:hidden;
+  height:calc(100vh - 188px);
+  min-height:500px;
+  background:#0b1627;
 }
 
 .tradingview-widget-container{
   width:100%;
   height:100%;
-  min-height:520px;
 }
 
 .tradingview-widget-container__widget{
@@ -335,522 +278,310 @@ select{
   height:100%;
 }
 
+/* ORDER PANEL */
 
-/* =====================================================
-   MARKET CARDS
-===================================================== */
+.order-panel{
+  background:#0c1829;
+  border-top:1px solid #1c2b40;
+  padding:10px 12px;
+}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.order-input{
+  width:110px;
+  background:#07111f;
+  border:1px solid #293b53;
+  color:white;
+  border-radius:8px;
+  padding:9px;
+  outline:none;
+}
+
+.order-label{
+  color:#8090a6;
+  font-size:9px;
+  margin-bottom:3px;
+}
+
+.order-field{
+  min-width:105px;
+}
+
+.buy-big,
+.sell-big{
+  flex:1;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  color:white;
+  font-weight:900;
+}
+
+.buy-big{
+  background:#16a34a;
+}
+
+.sell-big{
+  background:#dc2626;
+}
+
+/* MARKETS */
 
 .market-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-
-  gap:14px;
+  gap:12px;
 }
 
-.market-card{
-  background:#111a2e;
-  border:1px solid #24304a;
-
-  border-radius:15px;
-
-  padding:16px;
-}
-
-.market-top{
-  display:flex;
-  justify-content:space-between;
-
-  margin-bottom:14px;
+.market{
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:14px;
+  padding:15px;
 }
 
 .market-name{
-  font-weight:bold;
+  font-size:13px;
+  font-weight:800;
 }
 
 .market-symbol{
   color:#64748b;
-  font-size:10px;
+  font-size:9px;
+  margin-top:3px;
 }
 
 .market-price{
-  font-size:20px;
-  font-weight:bold;
+  font-size:19px;
+  font-weight:900;
+  margin-top:16px;
 }
 
 .market-change{
-  font-size:12px;
-  margin-top:5px;
+  font-size:10px;
+  margin-top:4px;
 }
 
-.chart-mini{
-  height:45px;
-
-  margin-top:14px;
-
-  border-bottom:2px solid #22c55e;
-
-  position:relative;
-}
-
-.chart-mini::after{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:30px;
-
-  border-top:2px solid #22c55e;
-
-  transform:skewY(-8deg);
-
-  opacity:.7;
-}
-
-
-/* =====================================================
-   SIGNALS
-===================================================== */
+/* SIGNALS */
 
 .signal-list{
-  display:flex;
-  flex-direction:column;
-
+  display:grid;
   gap:12px;
 }
 
-.signal-card{
-  background:#111a2e;
-  border:1px solid #24304a;
-
-  border-radius:15px;
-
-  padding:17px;
-}
-
-.signal-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
 .signal{
-  padding:8px 13px;
-
-  border-radius:20px;
-
-  font-size:12px;
-
-  font-weight:bold;
-
-  white-space:nowrap;
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:14px;
+  padding:16px;
 }
 
-.buy{
-  background:#052e16;
-  color:#4ade80;
-
-  border:1px solid #166534;
+.signal-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.sell{
-  background:#450a0a;
-  color:#f87171;
-
-  border:1px solid #991b1b;
+.signal-badge{
+  padding:7px 10px;
+  border-radius:18px;
+  font-size:10px;
+  font-weight:900;
 }
 
 .wait{
-  background:#422006;
+  background:#3b2706;
   color:#facc15;
+}
 
-  border:1px solid #854d0e;
+.long{
+  background:#06351b;
+  color:#4ade80;
+}
+
+.short{
+  background:#420b0b;
+  color:#f87171;
 }
 
 .conditions{
   display:flex;
   flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-top:13px;
+  gap:6px;
+  margin-top:12px;
 }
 
 .condition{
-  background:#172033;
-
-  border:1px solid #29364f;
-
-  color:#cbd5e1;
-
   padding:6px 8px;
-
-  border-radius:8px;
-
-  font-size:10px;
+  border-radius:7px;
+  background:#152236;
+  border:1px solid #26384f;
+  color:#aebdce;
+  font-size:9px;
 }
 
+/* POSITIONS */
 
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.btn{
-  border:0;
-
-  border-radius:10px;
-
-  padding:11px 15px;
-
-  cursor:pointer;
-
-  font-weight:bold;
-
-  font-size:12px;
-}
-
-.btn-green{
-  background:#16a34a;
-  color:white;
-}
-
-.btn-red{
-  background:#dc2626;
-  color:white;
-}
-
-.btn-blue{
-  background:#2563eb;
-  color:white;
-}
-
-.btn-dark{
-  background:#1e293b;
-  color:#e2e8f0;
-
-  border:1px solid #334155;
-}
-
-.button-row{
-  display:flex;
-
-  gap:8px;
-
-  margin-top:15px;
-
-  flex-wrap:wrap;
-}
-
-
-/* =====================================================
-   PAPER TRADING
-===================================================== */
-
-.trade-form{
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:12px;
-
-  margin-top:10px;
-}
-
-.form-group label{
-  display:block;
-
-  color:#94a3b8;
-
-  font-size:11px;
-
-  margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select{
-  width:100%;
-
-  background:#0b1220;
-
-  color:white;
-
-  border:1px solid #334155;
-
-  border-radius:9px;
-
-  padding:11px;
-
-  outline:none;
-}
-
-.trade-result{
-  margin-top:15px;
-
-  padding:13px;
-
-  background:#0b1220;
-
-  border:1px solid #24304a;
-
-  border-radius:10px;
-
-  display:none;
-}
-
-.trade-table{
-  width:100%;
-
-  border-collapse:collapse;
-
-  margin-top:10px;
-
-  font-size:11px;
-}
-
-.trade-table th,
-.trade-table td{
-  border-bottom:1px solid #24304a;
-
-  padding:10px 6px;
-
-  text-align:left;
-}
-
-
-/* =====================================================
-   LEARNING
-===================================================== */
-
-.learning-grid{
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:14px;
-}
-
-.lesson{
-  background:#111a2e;
-
-  border:1px solid #24304a;
-
-  border-radius:15px;
-
-  padding:17px;
-}
-
-.lesson-icon{
-  font-size:26px;
-
+.position{
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:14px;
+  padding:15px;
   margin-bottom:10px;
 }
 
+.position-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.position-label{
+  color:#71839a;
+  font-size:9px;
+}
+
+.position-value{
+  margin-top:4px;
+  font-weight:800;
+  font-size:12px;
+}
+
+/* LEARNING */
+
+.lesson-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.lesson{
+  background:#0c1829;
+  border:1px solid #1c2b40;
+  border-radius:14px;
+  padding:16px;
+}
+
+.lesson-icon{
+  font-size:25px;
+  margin-bottom:9px;
+}
+
 .lesson h3{
-  font-size:14px;
+  font-size:13px;
 }
 
 .lesson p{
-  color:#94a3b8;
-
-  font-size:11px;
-
+  color:#8090a6;
+  font-size:10px;
   line-height:1.6;
-
-  margin-top:7px;
+  margin-top:6px;
 }
 
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-box{
-  margin-top:10px;
-}
-
-.progress-bar{
-  height:10px;
-
-  background:#1e293b;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  margin-top:9px;
-}
-
-.progress-fill{
-  height:100%;
-
-  width:62%;
-
-  background:#22c55e;
-}
-
-
-/* =====================================================
-   CHAT
-===================================================== */
+/* CHAT */
 
 .chat-box{
-  height:calc(100vh - 320px);
-
+  height:calc(100vh - 245px);
   min-height:400px;
-
   overflow-y:auto;
-
   display:flex;
-
   flex-direction:column;
-
-  gap:12px;
-
-  padding:10px;
+  gap:9px;
+  padding:5px;
 }
 
 .message{
   max-width:80%;
-
-  padding:11px 13px;
-
-  border-radius:12px;
-
-  font-size:12px;
-
+  padding:10px 12px;
+  border-radius:11px;
+  font-size:11px;
   line-height:1.5;
 }
 
 .message.other{
-  background:#1e293b;
-
+  background:#172438;
   align-self:flex-start;
 }
 
 .message.me{
-  background:#14532d;
-
+  background:#104a2a;
   align-self:flex-end;
 }
 
 .chat-input{
   display:flex;
-
-  gap:8px;
-
-  margin-top:14px;
+  gap:7px;
+  margin-top:10px;
 }
 
 .chat-input input{
   flex:1;
-
-  background:#0b1220;
-
+  background:#07111f;
   color:white;
-
-  border:1px solid #334155;
-
-  border-radius:10px;
-
-  padding:11px;
-
+  border:1px solid #293b53;
+  border-radius:9px;
+  padding:10px;
   outline:none;
 }
 
+/* HISTORY */
 
-/* =====================================================
-   SAFETY
-===================================================== */
-
-.safety{
-  background:#172033;
-
-  border:1px solid #334155;
-
-  border-radius:14px;
-
-  padding:15px;
-
-  margin-top:18px;
+.history{
+  width:100%;
+  border-collapse:collapse;
+  font-size:10px;
 }
 
-.safety strong{
-  color:#facc15;
+.history th,
+.history td{
+  padding:10px 7px;
+  text-align:left;
+  border-bottom:1px solid #1c2b40;
 }
 
-.safety p{
-  color:#94a3b8;
-
-  font-size:11px;
-
-  line-height:1.6;
-
-  margin-top:5px;
+.history th{
+  color:#71839a;
 }
 
-
-/* =====================================================
-   BOTTOM NAV
-===================================================== */
+/* NAV */
 
 .bottom-nav{
   position:fixed;
-
+  z-index:999;
   bottom:0;
   left:0;
   right:0;
-
-  z-index:2000;
-
   height:68px;
-
-  background:#111a2e;
-
-  border-top:1px solid #24304a;
-
-  display:flex;
-
-  justify-content:center;
+  background:#0b1627;
+  border-top:1px solid #1d2c40;
 }
 
 .nav-inner{
-  width:100%;
-
-  max-width:1200px;
-
+  max-width:1100px;
+  height:100%;
+  margin:auto;
   display:flex;
-
-  justify-content:space-around;
+  overflow-x:auto;
 }
 
 .nav-btn{
   flex:1;
-
-  min-width:65px;
-
-  max-width:140px;
-
-  background:none;
-
+  min-width:72px;
+  max-width:135px;
   border:0;
-
+  background:none;
   color:#64748b;
-
-  padding:8px 3px;
-
-  cursor:pointer;
-
   font-size:9px;
 }
 
 .nav-btn span{
   display:block;
-
   font-size:19px;
-
   margin-bottom:3px;
 }
 
@@ -858,58 +589,46 @@ select{
   color:#22c55e;
 }
 
+/* SAFETY */
 
-/* =====================================================
-   FULLSCREEN CHART MODE
-===================================================== */
-
-body.chart-fullscreen .header,
-body.chart-fullscreen .bottom-nav,
-body.chart-fullscreen #chart .page-title,
-body.chart-fullscreen #chart .page-subtitle,
-body.chart-fullscreen .chart-toolbar{
-  display:none;
+.safety{
+  margin-top:15px;
+  padding:14px;
+  border-radius:13px;
+  background:#172238;
+  border:1px solid #2b3a51;
 }
 
-body.chart-fullscreen .main{
-  max-width:none;
-
-  padding:0;
+.safety strong{
+  color:#facc15;
+  font-size:11px;
 }
 
-body.chart-fullscreen #chart{
-  display:block;
-
-  width:100vw;
-  height:100vh;
+.safety p{
+  color:#8494a9;
+  font-size:10px;
+  line-height:1.6;
+  margin-top:5px;
 }
 
-body.chart-fullscreen .chart-card{
-  height:100vh;
+/* FOOTER */
 
-  min-height:100vh;
-
-  border:0;
-
-  border-radius:0;
-
-  padding:0;
+.creator{
+  text-align:center;
+  color:#64748b;
+  font-size:10px;
+  padding:20px 0 5px;
 }
 
-body.chart-fullscreen .tradingview-widget-container{
-  height:100vh;
-
-  min-height:100vh;
+.creator b{
+  color:#22c55e;
 }
 
+/* RESPONSIVE */
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+@media(max-width:800px){
 
-@media(max-width:850px){
-
-  .stats-grid{
+  .stats{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -917,289 +636,196 @@ body.chart-fullscreen .tradingview-widget-container{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .learning-grid{
+  .lesson-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .trade-form{
-    grid-template-columns:1fr 1fr;
+  .position-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
-
 
 @media(max-width:600px){
 
   .header{
-    height:64px;
-
-    padding:9px 12px;
+    padding:0 11px;
   }
 
-  .main{
-    padding:18px 12px 90px;
+  .brand-title{
+    font-size:13px;
   }
 
-  .page-title{
-    font-size:22px;
-  }
-
-  .two-grid{
-    grid-template-columns:1fr;
-  }
-
-  .market-grid{
-    grid-template-columns:1fr;
-  }
-
-  .learning-grid{
-    grid-template-columns:1fr;
-  }
-
-  .balance{
-    font-size:27px;
-  }
-
-  .logo h1{
-    font-size:14px;
-  }
-
-  .logo p{
-    font-size:9px;
-  }
-
-  .demo-badge{
-    font-size:9px;
-    padding:6px 8px;
-  }
-
-  .chart-card{
-    height:calc(100vh - 175px);
-
-    min-height:450px;
-  }
-
-  .tradingview-widget-container{
-    height:100%;
-
-    min-height:440px;
-  }
-
-  .trade-form{
-    grid-template-columns:1fr;
-  }
-
-  .nav-btn{
-    min-width:55px;
-
+  .brand-sub{
     font-size:8px;
   }
 
-  .nav-btn span{
-    font-size:18px;
+  .page{
+    padding:17px 11px;
   }
 
+  .title{
+    font-size:21px;
+  }
+
+  .grid2{
+    grid-template-columns:1fr;
+  }
+
+  .market-grid,
+  .lesson-grid{
+    grid-template-columns:1fr;
+  }
+
+  .chart-page{
+    padding:0;
+  }
+
+  .chart-wrap{
+    height:calc(100vh - 245px);
+    min-height:420px;
+  }
+
+  .order-row{
+    flex-wrap:wrap;
+  }
+
+  .order-field{
+    flex:1;
+    min-width:90px;
+  }
+
+  .order-input{
+    width:100%;
+  }
+
+  .buy-big,
+  .sell-big{
+    min-width:45%;
+  }
+
+  .chat-box{
+    height:calc(100vh - 280px);
+  }
 }
-
-
-/* =====================================================
-   SMALL
-===================================================== */
-
-@media(max-width:400px){
-
-  .nav-btn{
-    min-width:48px;
-  }
-
-  .nav-btn span{
-    font-size:17px;
-  }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
 <div class="app">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- HEADER -->
 
 <header class="header">
 
-  <div class="logo">
+  <div class="brand">
 
-    <div class="logo-icon">
-      📈
-    </div>
+    <div class="brand-logo">📈</div>
 
     <div>
-
-      <h1>
+      <div class="brand-title">
         Odisha Trading Learning
-      </h1>
+      </div>
 
-      <p>
-        Live Market • Paper Trading • Learning
-      </p>
-
+      <div class="brand-sub">
+        Price Action • Paper Trading • Learning
+      </div>
     </div>
 
   </div>
 
-  <div class="demo-badge">
+  <div class="demo">
     DEMO MODE
   </div>
 
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="main">
 
 
-<!-- =====================================================
-     HOME
-===================================================== -->
+<!-- HOME -->
 
 <section id="home" class="page active">
 
-  <h2 class="page-title">
-    Dashboard
-  </h2>
+  <div class="title">
+    Welcome, Babulu 👋
+  </div>
 
-  <p class="page-subtitle">
-    Market learning and paper trading dashboard.
-  </p>
+  <div class="subtitle">
+    Learn trading with a realistic paper-trading experience.
+  </div>
 
 
-  <div class="balance-card">
+  <div class="balance">
 
     <div class="balance-label">
-      💰 DEMO BALANCE
+      VIRTUAL BALANCE
     </div>
 
-    <div class="balance" id="dashboardBalance">
+    <div class="balance-value" id="homeBalance">
       ₹1,00,000
     </div>
 
     <div class="balance-note">
-      Virtual money only • No real money is used
+      Demo money only • No real money is used
     </div>
 
   </div>
 
 
-  <div class="stats-grid">
+  <div class="stats">
 
-    <div class="stat-card">
+    <div class="stat">
+      <div class="stat-label">Open Positions</div>
+      <div class="stat-value" id="homePositions">0</div>
+    </div>
 
-      <div class="stat-label">
-        Today's P&L
-      </div>
+    <div class="stat">
+      <div class="stat-label">Total Trades</div>
+      <div class="stat-value" id="homeTrades">0</div>
+    </div>
 
-      <div class="stat-value green"
-           id="dashboardPnL">
+    <div class="stat">
+      <div class="stat-label">Realized P&L</div>
+      <div class="stat-value green" id="homePnL">
         ₹0
       </div>
-
     </div>
 
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Win Rate
+    <div class="stat">
+      <div class="stat-label">Mode</div>
+      <div class="stat-value yellow">
+        PAPER
       </div>
-
-      <div class="stat-value"
-           id="winRate">
-        0%
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Paper Trades
-      </div>
-
-      <div class="stat-value"
-           id="tradeCount">
-        0
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Status
-      </div>
-
-      <div class="stat-value yellow"
-           id="tradeStatus">
-        READY
-      </div>
-
     </div>
 
   </div>
 
 
-  <div class="card">
-
-    <div class="card-title">
-      📡 Learning Rule
-    </div>
-
-    <p style="color:#94a3b8;font-size:12px;line-height:1.7;">
-
-      First understand the market structure,
-      then identify support/resistance,
-      wait for confirmation,
-      and practice with paper money.
-
-    </p>
-
-  </div>
-
-
-  <div class="two-grid">
+  <div class="grid2">
 
     <div class="card">
 
       <div class="card-title">
-        📊 Market
+        🤖 Current Signal
       </div>
 
-      <p style="color:#94a3b8;font-size:12px;">
-        Open the Chart section to view live TradingView market data.
+      <p style="font-size:12px;">
+        BTC/USDT
       </p>
 
-      <div class="button-row">
+      <p style="font-size:11px;color:#8494a9;margin-top:6px;">
+        Wait for confirmation before taking a paper trade.
+      </p>
 
-        <button class="btn btn-blue"
-                onclick="openPage('chart')">
-
-          Open Live Chart
-
-        </button>
-
-      </div>
+      <button
+        class="btn btn-blue"
+        style="margin-top:12px"
+        onclick="openPage('signals',null)">
+        View Signals
+      </button>
 
     </div>
 
@@ -1207,23 +833,20 @@ body.chart-fullscreen .tradingview-widget-container{
     <div class="card">
 
       <div class="card-title">
-        💰 Practice
+        📚 Start Learning
       </div>
 
-      <p style="color:#94a3b8;font-size:12px;">
-        Create BUY/SELL paper trades using virtual money.
+      <p style="font-size:11px;color:#8494a9;">
+        Candlestick, market structure, support,
+        resistance, risk management and more.
       </p>
 
-      <div class="button-row">
-
-        <button class="btn btn-green"
-                onclick="openPage('paper')">
-
-          Start Paper Trading
-
-        </button>
-
-      </div>
+      <button
+        class="btn btn-green"
+        style="margin-top:12px"
+        onclick="openPage('learning',null)">
+        Start Learning
+      </button>
 
     </div>
 
@@ -1233,89 +856,58 @@ body.chart-fullscreen .tradingview-widget-container{
   <div class="safety">
 
     <strong>
-      ⚠️ Learning & Paper Trading Only
+      ⚠️ DEMO / PAPER TRADING ONLY
     </strong>
 
     <p>
-      This app is designed for education and simulation.
-      Paper results do not guarantee real-market results.
-      No real-money orders are placed by this app.
+      This application is designed for education and practice.
+      Demo results do not guarantee real-market results.
     </p>
 
+  </div>
+
+
+  <div class="creator">
+    Created by <b>Babulu Naik</b> • Village Boy 🇮🇳
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     LIVE CHART
-===================================================== -->
+<!-- CHART -->
 
-<section id="chart" class="page">
+<section id="chart" class="page chart-page">
 
-  <h2 class="page-title">
-    📡 Live Chart
-  </h2>
-
-  <p class="page-subtitle">
-    Live market chart • Paper trading only
-  </p>
-
-
-  <div class="chart-toolbar">
+  <div class="chart-header">
 
     <div class="chart-symbol">
-
-      <select id="chartSymbol"
-              onchange="changeChart()">
-
-        <option value="BINANCE:BTCUSDT">
-          BTC/USDT
-        </option>
-
-        <option value="BINANCE:ETHUSDT">
-          ETH/USDT
-        </option>
-
-        <option value="OANDA:XAUUSD">
-          Gold / XAUUSD
-        </option>
-
-        <option value="OANDA:EURUSD">
-          EUR/USD
-        </option>
-
-        <option value="OANDA:GBPUSD">
-          GBP/USD
-        </option>
-
-        <option value="NSE:NIFTY">
-          NIFTY
-        </option>
-
-        <option value="NSE:BANKNIFTY">
-          BANK NIFTY
-        </option>
-
-      </select>
-
+      BTC/USDT • LIVE CHART
     </div>
 
+    <div class="chart-actions">
 
-    <button class="chart-full-btn"
-            onclick="toggleChartFullscreen()">
+      <button
+        class="btn btn-dark"
+        onclick="setSymbol('BINANCE:BTCUSDT')">
+        BTC
+      </button>
 
-      ⛶ Full Chart
+      <button
+        class="btn btn-dark"
+        onclick="setSymbol('BINANCE:ETHUSDT')">
+        ETH
+      </button>
 
-    </button>
+    </div>
 
   </div>
 
 
-  <div class="card chart-card">
+  <div class="chart-wrap">
 
-    <div class="tradingview-widget-container"
-         id="tradingviewContainer">
+    <div
+      class="tradingview-widget-container"
+      id="tvContainer">
 
       <div class="tradingview-widget-container__widget"></div>
 
@@ -1323,7 +915,6 @@ body.chart-fullscreen .tradingview-widget-container{
         type="text/javascript"
         src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
         async>
-
       {
         "autosize": true,
         "symbol": "BINANCE:BTCUSDT",
@@ -1340,240 +931,62 @@ body.chart-fullscreen .tradingview-widget-container{
         "calendar": false,
         "support_host": "https://www.tradingview.com"
       }
-
       </script>
 
     </div>
 
   </div>
 
-</section>
 
+  <div class="order-panel">
 
-<!-- =====================================================
-     MARKETS
-===================================================== -->
+    <div class="order-row">
 
-<section id="markets" class="page">
+      <div class="order-field">
 
-  <h2 class="page-title">
-    Markets
-  </h2>
-
-  <p class="page-subtitle">
-    Market symbols for learning and analysis.
-  </p>
-
-
-  <div class="market-grid">
-
-
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            Bitcoin
-          </div>
-
-          <div class="market-symbol">
-            BTC/USDT
-          </div>
-
+        <div class="order-label">
+          QUANTITY
         </div>
 
-        <div class="green">
-          ●
+        <input
+          id="tradeQty"
+          class="order-input"
+          type="number"
+          value="1"
+          min="0.01"
+          step="0.01">
+
+      </div>
+
+
+      <div class="order-field">
+
+        <div class="order-label">
+          DEMO PRICE
         </div>
 
-      </div>
-
-      <div class="market-price">
-        Live Chart
-      </div>
-
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
-
-    </div>
-
-
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            Ethereum
-          </div>
-
-          <div class="market-symbol">
-            ETH/USDT
-          </div>
-
-        </div>
-
-        <div class="green">
-          ●
-        </div>
+        <input
+          id="tradePrice"
+          class="order-input"
+          type="number"
+          value="117250"
+          min="1">
 
       </div>
 
-      <div class="market-price">
-        Live Chart
-      </div>
 
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
-
-    </div>
+      <button
+        class="buy-big"
+        onclick="openTrade('LONG')">
+        🟢 PAPER BUY
+      </button>
 
 
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            Gold
-          </div>
-
-          <div class="market-symbol">
-            XAU/USD
-          </div>
-
-        </div>
-
-        <div class="yellow">
-          ●
-        </div>
-
-      </div>
-
-      <div class="market-price">
-        Live Chart
-      </div>
-
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
-
-    </div>
-
-
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            NIFTY
-          </div>
-
-          <div class="market-symbol">
-            NSE:NIFTY
-          </div>
-
-        </div>
-
-        <div class="green">
-          ●
-        </div>
-
-      </div>
-
-      <div class="market-price">
-        Live Chart
-      </div>
-
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
-
-    </div>
-
-
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            BANK NIFTY
-          </div>
-
-          <div class="market-symbol">
-            NSE:BANKNIFTY
-          </div>
-
-        </div>
-
-        <div class="green">
-          ●
-        </div>
-
-      </div>
-
-      <div class="market-price">
-        Live Chart
-      </div>
-
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
-
-    </div>
-
-
-    <div class="market-card">
-
-      <div class="market-top">
-
-        <div>
-
-          <div class="market-name">
-            EUR/USD
-          </div>
-
-          <div class="market-symbol">
-            Forex
-          </div>
-
-        </div>
-
-        <div class="green">
-          ●
-        </div>
-
-      </div>
-
-      <div class="market-price">
-        Live Chart
-      </div>
-
-      <div class="market-change green">
-        TradingView
-      </div>
-
-      <div class="chart-mini"></div>
+      <button
+        class="sell-big"
+        onclick="openTrade('SHORT')">
+        🔴 PAPER SELL
+      </button>
 
     </div>
 
@@ -1582,42 +995,149 @@ body.chart-fullscreen .tradingview-widget-container{
 </section>
 
 
-<!-- =====================================================
-     SIGNALS
-===================================================== -->
+<!-- MARKETS -->
+
+<section id="markets" class="page">
+
+  <div class="title">Markets</div>
+
+  <div class="subtitle">
+    Practice analysing different markets.
+  </div>
+
+
+  <div class="market-grid">
+
+    <div class="market">
+
+      <div class="market-name">Bitcoin</div>
+      <div class="market-symbol">BTC/USDT</div>
+
+      <div class="market-price">
+        $117,250
+      </div>
+
+      <div class="market-change green">
+        +1.42%
+      </div>
+
+    </div>
+
+
+    <div class="market">
+
+      <div class="market-name">Ethereum</div>
+      <div class="market-symbol">ETH/USDT</div>
+
+      <div class="market-price">
+        $4,280
+      </div>
+
+      <div class="market-change green">
+        +0.85%
+      </div>
+
+    </div>
+
+
+    <div class="market">
+
+      <div class="market-name">Gold</div>
+      <div class="market-symbol">XAU/USD</div>
+
+      <div class="market-price">
+        $3,340
+      </div>
+
+      <div class="market-change green">
+        +0.31%
+      </div>
+
+    </div>
+
+
+    <div class="market">
+
+      <div class="market-name">EUR/USD</div>
+      <div class="market-symbol">Forex</div>
+
+      <div class="market-price">
+        1.1685
+      </div>
+
+      <div class="market-change green">
+        +0.22%
+      </div>
+
+    </div>
+
+
+    <div class="market">
+
+      <div class="market-name">GBP/USD</div>
+      <div class="market-symbol">Forex</div>
+
+      <div class="market-price">
+        1.3512
+      </div>
+
+      <div class="market-change red">
+        -0.18%
+      </div>
+
+    </div>
+
+
+    <div class="market">
+
+      <div class="market-name">USD/JPY</div>
+      <div class="market-symbol">Forex</div>
+
+      <div class="market-price">
+        147.82
+      </div>
+
+      <div class="market-change green">
+        +0.12%
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SIGNALS -->
 
 <section id="signals" class="page">
 
-  <h2 class="page-title">
-    🤖 Signal Learning
-  </h2>
+  <div class="title">
+    Signal Engine
+  </div>
 
-  <p class="page-subtitle">
-    Educational checklist — not guaranteed trade signals.
-  </p>
+  <div class="subtitle">
+    Educational signals — confirmation first.
+  </div>
 
 
   <div class="signal-list">
 
 
-    <div class="signal-card">
+    <div class="signal">
 
-      <div class="signal-header">
+      <div class="signal-top">
 
         <div>
+          <strong>BTC/USDT • 5M</strong>
 
-          <strong>
-            BTC/USDT • 5M
-          </strong>
-
-          <p style="color:#94a3b8;font-size:10px;margin-top:5px;">
-            Example confirmation checklist
+          <p style="color:#8090a6;font-size:10px;margin-top:5px;">
+            Market structure bullish
           </p>
-
         </div>
 
-        <div class="signal wait">
-          🟡 WAIT
+        <div class="signal-badge wait">
+          WAIT
         </div>
 
       </div>
@@ -1625,61 +1145,38 @@ body.chart-fullscreen .tradingview-widget-container{
 
       <div class="conditions">
 
-        <span class="condition">
-          Structure
-        </span>
-
-        <span class="condition">
-          Support
-        </span>
-
-        <span class="condition">
-          Reaction
-        </span>
-
-        <span class="condition">
-          Candle Close
-        </span>
-
-        <span class="condition">
-          Risk Check
-        </span>
+        <span class="condition">✓ Structure</span>
+        <span class="condition">✓ Support</span>
+        <span class="condition">✓ Reaction</span>
+        <span class="condition">⏳ Confirmation</span>
 
       </div>
 
 
-      <div class="button-row">
-
-        <button class="btn btn-dark"
-                onclick="showWhy('BTC/USDT')">
-
-          Why WAIT?
-
-        </button>
-
-      </div>
+      <button
+        class="btn btn-dark"
+        style="margin-top:12px"
+        onclick="showWhy('BTC/USDT')">
+        Why WAIT?
+      </button>
 
     </div>
 
 
-    <div class="signal-card">
+    <div class="signal">
 
-      <div class="signal-header">
+      <div class="signal-top">
 
         <div>
+          <strong>ETH/USDT • 15M</strong>
 
-          <strong>
-            XAU/USD • 5M
-          </strong>
-
-          <p style="color:#94a3b8;font-size:10px;margin-top:5px;">
-            Example educational setup
+          <p style="color:#8090a6;font-size:10px;margin-top:5px;">
+            Support reaction detected
           </p>
-
         </div>
 
-        <div class="signal wait">
-          🟡 WAIT
+        <div class="signal-badge long">
+          LONG SETUP
         </div>
 
       </div>
@@ -1687,156 +1184,107 @@ body.chart-fullscreen .tradingview-widget-container{
 
       <div class="conditions">
 
-        <span class="condition">
-          Resistance
-        </span>
-
-        <span class="condition">
-          Rejection
-        </span>
-
-        <span class="condition">
-          Candle Close
-        </span>
-
-        <span class="condition">
-          Risk Check
-        </span>
+        <span class="condition">✓ Support</span>
+        <span class="condition">✓ Reaction</span>
+        <span class="condition">✓ Structure</span>
+        <span class="condition">⏳ Entry confirmation</span>
 
       </div>
+
+
+      <button
+        class="btn btn-green"
+        style="margin-top:12px"
+        onclick="quickTrade('LONG','ETH/USDT')">
+        Paper Long
+      </button>
 
     </div>
 
 
-    <div class="signal-card">
+    <div class="signal">
 
-      <div class="signal-header">
+      <div class="signal-top">
 
         <div>
+          <strong>XAU/USD • 5M</strong>
 
-          <strong>
-            NIFTY • 15M
-          </strong>
-
-          <p style="color:#94a3b8;font-size:10px;margin-top:5px;">
-            Practice market structure
+          <p style="color:#8090a6;font-size:10px;margin-top:5px;">
+            Resistance rejection example
           </p>
-
         </div>
 
-        <div class="signal wait">
-          🟡 WAIT
+        <div class="signal-badge short">
+          SHORT SETUP
         </div>
 
       </div>
+
 
       <div class="conditions">
 
-        <span class="condition">
-          Higher Timeframe
-        </span>
-
-        <span class="condition">
-          Support/Resistance
-        </span>
-
-        <span class="condition">
-          Confirmation
-        </span>
+        <span class="condition">✓ Resistance</span>
+        <span class="condition">✓ Rejection</span>
+        <span class="condition">✓ Structure</span>
 
       </div>
 
+
+      <button
+        class="btn btn-red"
+        style="margin-top:12px"
+        onclick="quickTrade('SHORT','XAU/USD')">
+        Paper Short
+      </button>
+
     </div>
-
-  </div>
-
-
-  <div class="safety">
-
-    <strong>
-      ⚠️ Important
-    </strong>
-
-    <p>
-      The signal section is for learning how to analyze a setup.
-      It does not predict the market or guarantee profit.
-    </p>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     PAPER TRADING
-===================================================== -->
+<!-- PAPER TRADING -->
 
 <section id="paper" class="page">
 
-  <h2 class="page-title">
-    💰 Paper Trading
-  </h2>
+  <div class="title">
+    Paper Trading
+  </div>
 
-  <p class="page-subtitle">
-    Practice BUY and SELL using virtual money.
-  </p>
+  <div class="subtitle">
+    Your demo positions and trade history.
+  </div>
 
 
-  <div class="stats-grid">
+  <div class="stats">
 
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Virtual Balance
-      </div>
-
-      <div class="stat-value"
-           id="paperBalance">
+    <div class="stat">
+      <div class="stat-label">Balance</div>
+      <div class="stat-value" id="paperBalance">
         ₹1,00,000
       </div>
-
     </div>
 
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Available
-      </div>
-
-      <div class="stat-value"
-           id="availableBalance">
-        ₹1,00,000
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Open Trades
-      </div>
-
-      <div class="stat-value"
-           id="openTrades">
+    <div class="stat">
+      <div class="stat-label">Positions</div>
+      <div class="stat-value" id="paperPositions">
         0
       </div>
-
     </div>
 
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Realized P&L
+    <div class="stat">
+      <div class="stat-label">Trades</div>
+      <div class="stat-value" id="paperTrades">
+        0
       </div>
+    </div>
 
-      <div class="stat-value green"
-           id="realizedPnL">
+    <div class="stat">
+      <div class="stat-label">P&L</div>
+      <div class="stat-value green" id="paperPnL">
         ₹0
       </div>
-
     </div>
 
   </div>
@@ -1845,393 +1293,133 @@ body.chart-fullscreen .tradingview-widget-container{
   <div class="card">
 
     <div class="card-title">
-      📝 Create Demo Trade
+      📦 Open Positions
     </div>
 
-
-    <div class="trade-form">
-
-
-      <div class="form-group">
-
-        <label>
-          Symbol
-        </label>
-
-        <select id="tradeSymbol">
-
-          <option>
-            BTC/USDT
-          </option>
-
-          <option>
-            ETH/USDT
-          </option>
-
-          <option>
-            XAU/USD
-          </option>
-
-          <option>
-            NIFTY
-          </option>
-
-          <option>
-            BANK NIFTY
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Side
-        </label>
-
-        <select id="tradeSide">
-
-          <option value="BUY">
-            BUY
-          </option>
-
-          <option value="SELL">
-            SELL
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Entry Price
-        </label>
-
-        <input
-          id="entryPrice"
-          type="number"
-          min="0"
-          step="any"
-          placeholder="Example: 100"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Quantity
-        </label>
-
-        <input
-          id="tradeQuantity"
-          type="number"
-          min="0"
-          step="any"
-          placeholder="Example: 1"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Stop Loss
-        </label>
-
-        <input
-          id="stopLoss"
-          type="number"
-          min="0"
-          step="any"
-          placeholder="Optional"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Target
-        </label>
-
-        <input
-          id="targetPrice"
-          type="number"
-          min="0"
-          step="any"
-          placeholder="Optional"
-        >
-
-      </div>
-
-    </div>
-
-
-    <div class="button-row">
-
-      <button class="btn btn-green"
-              onclick="createPaperTrade()">
-
-        🟢 Create Demo Trade
-
-      </button>
-
-      <button class="btn btn-dark"
-              onclick="resetDemo()">
-
-        Reset Demo
-
-      </button>
-
-    </div>
-
-
-    <div class="trade-result"
-         id="tradeResult">
-
+    <div id="positions">
+      <p style="color:#71839a;font-size:11px;">
+        No open paper positions.
+      </p>
     </div>
 
   </div>
 
 
-  <div class="card"
-       style="margin-top:18px;">
+  <div class="card" style="margin-top:15px;overflow:auto;">
 
     <div class="card-title">
-      📒 Open Trades
+      📒 Trade History
     </div>
 
-    <div id="openTradeList">
+    <table class="history">
 
-      <p style="color:#64748b;font-size:12px;">
-        No open paper trades.
-      </p>
+      <thead>
 
-    </div>
+        <tr>
+          <th>Symbol</th>
+          <th>Side</th>
+          <th>Entry</th>
+          <th>Exit</th>
+          <th>P&L</th>
+        </tr>
 
-  </div>
+      </thead>
 
+      <tbody id="history">
+      </tbody>
 
-  <div class="card"
-       style="margin-top:18px;">
-
-    <div class="card-title">
-      📚 Trade History
-    </div>
-
-    <div id="historyList">
-
-      <p style="color:#64748b;font-size:12px;">
-        No completed trades.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="safety">
-
-    <strong>
-      💡 Demo Trading
-    </strong>
-
-    <p>
-      Every order on this page is simulated.
-      No broker account and no real money are connected.
-    </p>
+    </table>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     LEARNING
-===================================================== -->
+<!-- LEARNING -->
 
 <section id="learning" class="page">
 
-  <h2 class="page-title">
-    📚 Learning
-  </h2>
+  <div class="title">
+    Trading School 📚
+  </div>
 
-  <p class="page-subtitle">
-    Share Market basics step by step.
-  </p>
+  <div class="subtitle">
+    Step-by-step price action learning.
+  </div>
 
 
-  <div class="learning-grid">
-
+  <div class="lesson-grid">
 
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🏦
-      </div>
-
-      <h3>
-        Share Market କଣ?
-      </h3>
-
+      <div class="lesson-icon">🕯️</div>
+      <h3>Candlestick</h3>
       <p>
-        Company ର ownership ର ଛୋଟ ଅଂଶକୁ share କୁହାଯାଏ।
-        Market କିପରି କାମ କରେ ଶିଖନ୍ତୁ।
+        Open, High, Low and Close କିପରି ବୁଝିବେ ଶିଖନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🕯️
-      </div>
-
-      <h3>
-        Candlestick
-      </h3>
-
+      <div class="lesson-icon">📈</div>
+      <h3>Market Structure</h3>
       <p>
-        Open, High, Low ଏବଂ Close ଦ୍ୱାରା candle କିପରି
-        price movement ଦେଖାଏ ବୁଝନ୍ତୁ।
+        Higher High, Higher Low, Lower High ଏବଂ Lower Low ବୁଝନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        📈
-      </div>
-
-      <h3>
-        Market Structure
-      </h3>
-
+      <div class="lesson-icon">🟢</div>
+      <h3>Support</h3>
       <p>
-        Higher High, Higher Low, Lower High ଏବଂ
-        Lower Low ବୁଝନ୍ତୁ।
+        Price reaction ହୋଇପାରୁଥିବା area identify କରନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🟩
-      </div>
-
-      <h3>
-        Support
-      </h3>
-
+      <div class="lesson-icon">🔴</div>
+      <h3>Resistance</h3>
       <p>
-        Price କେଉଁ area ରେ reaction ଦେଇପାରେ
-        ତାହା identify କରିବା ଶିଖନ୍ତୁ।
+        Previous highs ଏବଂ selling area ବୁଝନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🟥
-      </div>
-
-      <h3>
-        Resistance
-      </h3>
-
+      <div class="lesson-icon">💥</div>
+      <h3>Breakout</h3>
       <p>
-        Previous high ଏବଂ supply area ବୁଝିବା
-        ଶିଖନ୍ତୁ।
+        Structure break ଏବଂ false breakout ମଧ୍ୟରେ difference ଶିଖନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        💥
-      </div>
-
-      <h3>
-        Breakout
-      </h3>
-
+      <div class="lesson-icon">🔄</div>
+      <h3>Retest</h3>
       <p>
-        Price structure break କଲେ breakout କଣ
-        ଏବଂ false breakout କଣ ଶିଖନ୍ତୁ।
+        Breakout ପରେ price zoneକୁ return କଲେ କଣ observe କରିବେ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🔄
-      </div>
-
-      <h3>
-        Retest
-      </h3>
-
+      <div class="lesson-icon">🛑</div>
+      <h3>Stop Loss</h3>
       <p>
-        Breakout ପରେ price ପୁଣି area କୁ ଆସିଲେ
-        confirmation କିପରି ଦେଖିବେ।
+        Trade idea invalid ହେଲେ exit concept ବୁଝନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        🛑
-      </div>
-
-      <h3>
-        Stop Loss
-      </h3>
-
+      <div class="lesson-icon">🎯</div>
+      <h3>Target</h3>
       <p>
-        Trade idea invalid ହେଲେ risk କିପରି control
-        କରିବେ ବୁଝନ୍ତୁ।
+        Logical target ଏବଂ market structure ବିଷୟରେ ଶିଖନ୍ତୁ।
       </p>
-
     </div>
 
-
     <div class="lesson">
-
-      <div class="lesson-icon">
-        ⚖️
-      </div>
-
-      <h3>
-        Risk Management
-      </h3>
-
+      <div class="lesson-icon">⚖️</div>
+      <h3>Risk Management</h3>
       <p>
-        Capital protection, position size ଏବଂ
-        risk/reward ବିଷୟରେ ଶିଖନ୍ତୁ।
+        ଗୋଟିଏ tradeରେ risk କାହିଁକି control କରିବା ଦରକାର ବୁଝନ୍ତୁ।
       </p>
-
     </div>
 
   </div>
@@ -2239,14 +1427,11 @@ body.chart-fullscreen .tradingview-widget-container{
 
   <div class="safety">
 
-    <strong>
-      ⚠️ Learning First
-    </strong>
+    <strong>💡 Golden Rule</strong>
 
     <p>
-      Real money use କରିବା ପୂର୍ବରୁ market basics,
-      risk management ଏବଂ paper trading practice
-      ଭଲଭାବେ ଶିଖିବା ଜରୁରୀ।
+      Confirmation ନଥିଲେ WAIT.
+      ପ୍ରଥମେ ଶିଖନ୍ତୁ, ପରେ paper trade କରନ୍ତୁ।
     </p>
 
   </div>
@@ -2254,183 +1439,33 @@ body.chart-fullscreen .tradingview-widget-container{
 </section>
 
 
-<!-- =====================================================
-     PROGRESS
-===================================================== -->
-
-<section id="progress" class="page">
-
-  <h2 class="page-title">
-    📈 Trader Progress
-  </h2>
-
-  <p class="page-subtitle">
-    Your demo trading and learning progress.
-  </p>
-
-
-  <div class="stats-grid">
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Total Trades
-      </div>
-
-      <div class="stat-value"
-           id="progressTotal">
-        0
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Winning
-      </div>
-
-      <div class="stat-value green"
-           id="progressWins">
-        0
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Losing
-      </div>
-
-      <div class="stat-value red"
-           id="progressLosses">
-        0
-      </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <div class="stat-label">
-        Level
-      </div>
-
-      <div class="stat-value blue">
-        Beginner
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="card-title">
-      🧠 Learning Progress
-    </div>
-
-
-    <div class="progress-box">
-
-      <div style="display:flex;justify-content:space-between;font-size:12px;">
-
-        <span>
-          Price Action Basics
-        </span>
-
-        <span class="green">
-          62%
-        </span>
-
-      </div>
-
-
-      <div class="progress-bar">
-
-        <div class="progress-fill"></div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="two-grid">
-
-    <div class="card">
-
-      <div class="card-title">
-        ⭐ Good Habit
-      </div>
-
-      <p style="font-size:13px;color:#94a3b8;">
-        Wait for confirmation before practicing a setup.
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="card-title">
-        ⚠️ Avoid
-      </div>
-
-      <p style="font-size:13px;color:#facc15;">
-        Do not treat demo profit as guaranteed real profit.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     CHAT
-===================================================== -->
+<!-- CHAT -->
 
 <section id="chat" class="page">
 
-  <h2 class="page-title">
-    💬 Learning Chat
-  </h2>
+  <div class="title">
+    Trading Chat 💬
+  </div>
 
-  <p class="page-subtitle">
-    Discuss market learning ideas.
-  </p>
+  <div class="subtitle">
+    Demo trade activity and learning discussion.
+  </div>
 
 
   <div class="card">
 
-    <div class="chat-box"
-         id="chatBox">
+    <div class="chat-box" id="chatBox">
 
       <div class="message other">
-
         👋 Welcome to Odisha Trading Learning.
-
       </div>
-
 
       <div class="message other">
-
-        📚 Use this chat for learning and discussion.
-
+        📊 Paper trading mode is active.
       </div>
 
-
-      <div class="message me">
-
-        Paper trading re practice karibi 👍
-
+      <div class="message other">
+        💡 Trade from the Chart page and your demo activity will appear here.
       </div>
 
     </div>
@@ -2442,16 +1477,12 @@ body.chart-fullscreen .tradingview-widget-container{
         id="chatInput"
         type="text"
         placeholder="Write a message..."
-        onkeydown="handleChat(event)"
-      >
-
+        onkeydown="handleChat(event)">
 
       <button
         class="btn btn-green"
         onclick="sendMessage()">
-
         Send
-
       </button>
 
     </div>
@@ -2464,84 +1495,59 @@ body.chart-fullscreen .tradingview-widget-container{
 </main>
 
 
-<!-- =====================================================
-     BOTTOM NAV
-===================================================== -->
+<!-- NAV -->
 
 <nav class="bottom-nav">
 
   <div class="nav-inner">
 
-
-    <button class="nav-btn active"
-            onclick="openPage('home',this)">
-
+    <button
+      class="nav-btn active"
+      onclick="openPage('home',this)">
       <span>🏠</span>
       Home
-
     </button>
 
-
-    <button class="nav-btn"
-            onclick="openPage('chart',this)">
-
-      <span>📡</span>
-      Chart
-
-    </button>
-
-
-    <button class="nav-btn"
-            onclick="openPage('markets',this)">
-
+    <button
+      class="nav-btn"
+      onclick="openPage('chart',this)">
       <span>📊</span>
-      Markets
-
+      Chart
     </button>
 
+    <button
+      class="nav-btn"
+      onclick="openPage('markets',this)">
+      <span>💹</span>
+      Markets
+    </button>
 
-    <button class="nav-btn"
-            onclick="openPage('signals',this)">
-
+    <button
+      class="nav-btn"
+      onclick="openPage('signals',this)">
       <span>🤖</span>
       Signals
-
     </button>
 
-
-    <button class="nav-btn"
-            onclick="openPage('paper',this)">
-
+    <button
+      class="nav-btn"
+      onclick="openPage('paper',this)">
       <span>💰</span>
       Paper
-
     </button>
 
-
-    <button class="nav-btn"
-            onclick="openPage('learning',this)">
-
+    <button
+      class="nav-btn"
+      onclick="openPage('learning',this)">
       <span>📚</span>
       Learn
-
     </button>
 
-
-    <button class="nav-btn"
-            onclick="openPage('progress',this)">
-
-      <span>📈</span>
-      Progress
-
-    </button>
-
-
-    <button class="nav-btn"
-            onclick="openPage('chat',this)">
-
+    <button
+      class="nav-btn"
+      onclick="openPage('chat',this)">
       <span>💬</span>
       Chat
-
     </button>
 
   </div>
@@ -2549,104 +1555,83 @@ body.chart-fullscreen .tradingview-widget-container{
 </nav>
 
 
-</div>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-/* =====================================================
-   DEMO DATA
-===================================================== */
+/* =========================================
+   DEMO ACCOUNT
+========================================= */
 
-const STARTING_BALANCE = 100000;
+const START_BALANCE = 100000;
 
-let demoBalance =
-  Number(localStorage.getItem("otl_balance"))
-  || STARTING_BALANCE;
+let account = JSON.parse(
+  localStorage.getItem("babuluTradingAccount") || "null"
+);
 
-let openTrades =
-  JSON.parse(localStorage.getItem("otl_open_trades") || "[]");
+if(!account){
 
-let tradeHistory =
-  JSON.parse(localStorage.getItem("otl_history") || "[]");
+  account = {
+    balance:START_BALANCE,
+    realizedPnL:0,
+    positions:[],
+    history:[]
+  };
+
+  saveAccount();
+}
 
 
-/* =====================================================
+/* =========================================
+   STORAGE
+========================================= */
+
+function saveAccount(){
+
+  localStorage.setItem(
+    "babuluTradingAccount",
+    JSON.stringify(account)
+  );
+
+}
+
+
+/* =========================================
    FORMAT MONEY
-===================================================== */
+========================================= */
 
 function money(value){
 
-  return "₹" +
-    Number(value || 0).toLocaleString(
-      "en-IN",
-      {
-        maximumFractionDigits:2
-      }
-    );
-
-}
-
-
-/* =====================================================
-   SAVE
-===================================================== */
-
-function saveDemo(){
-
-  localStorage.setItem(
-    "otl_balance",
-    demoBalance
-  );
-
-  localStorage.setItem(
-    "otl_open_trades",
-    JSON.stringify(openTrades)
-  );
-
-  localStorage.setItem(
-    "otl_history",
-    JSON.stringify(tradeHistory)
+  return "₹" + Number(value).toLocaleString(
+    "en-IN",
+    {
+      maximumFractionDigits:2
+    }
   );
 
 }
 
 
-/* =====================================================
-   PAGE NAVIGATION
-===================================================== */
+/* =========================================
+   NAVIGATION
+========================================= */
 
-function openPage(pageId,button){
+function openPage(id,button){
 
-  document
-    .querySelectorAll(".page")
+  document.querySelectorAll(".page")
     .forEach(function(page){
-
       page.classList.remove("active");
-
     });
 
-
   const page =
-    document.getElementById(pageId);
+    document.getElementById(id);
 
   if(page){
-
     page.classList.add("active");
-
   }
 
 
-  document
-    .querySelectorAll(".nav-btn")
+  document.querySelectorAll(".nav-btn")
     .forEach(function(btn){
-
       btn.classList.remove("active");
-
     });
 
 
@@ -2654,21 +1639,18 @@ function openPage(pageId,button){
 
     button.classList.add("active");
 
-  }
-  else{
+  }else{
 
-    document
-      .querySelectorAll(".nav-btn")
+    document.querySelectorAll(".nav-btn")
       .forEach(function(btn){
 
         if(
           btn.getAttribute("onclick") &&
-          btn.getAttribute("onclick")
-            .includes("'" + pageId + "'")
+          btn.getAttribute("onclick").includes(
+            "'" + id + "'"
+          )
         ){
-
           btn.classList.add("active");
-
         }
 
       });
@@ -2682,37 +1664,673 @@ function openPage(pageId,button){
   });
 
 
-  if(pageId === "chart"){
+  updateUI();
 
-    setTimeout(function(){
+}
 
-      window.dispatchEvent(
-        new Event("resize")
+
+/* =========================================
+   OPEN PAPER TRADE
+========================================= */
+
+function openTrade(side){
+
+  const qty =
+    Number(document.getElementById("tradeQty").value);
+
+  const price =
+    Number(document.getElementById("tradePrice").value);
+
+
+  if(!qty || qty <= 0){
+
+    alert("Please enter a valid quantity.");
+
+    return;
+
+  }
+
+
+  if(!price || price <= 0){
+
+    alert("Please enter a valid demo price.");
+
+    return;
+
+  }
+
+
+  const required =
+    qty * price;
+
+
+  if(required > account.balance){
+
+    alert(
+      "Not enough virtual balance.\n\n" +
+      "This is only demo money."
+    );
+
+    return;
+
+  }
+
+
+  const trade = {
+
+    id:Date.now(),
+
+    symbol:"BTC/USDT",
+
+    side:side,
+
+    qty:qty,
+
+    entry:price,
+
+    current:price,
+
+    openedAt:new Date().toLocaleString(),
+
+    pnl:0
+
+  };
+
+
+  account.balance -= required;
+
+  account.positions.push(trade);
+
+  saveAccount();
+
+  addTradeChat(trade);
+
+  updateUI();
+
+
+  alert(
+    "Paper " +
+    (side === "LONG" ? "BUY" : "SELL") +
+    " opened successfully.\n\n" +
+    "BTC/USDT\n" +
+    "Quantity: " + qty + "\n" +
+    "Entry: " + price
+  );
+
+}
+
+
+/* =========================================
+   QUICK TRADE
+========================================= */
+
+function quickTrade(side,symbol){
+
+  const price =
+    symbol === "ETH/USDT"
+    ? 4280
+    : 3340;
+
+
+  document.getElementById("tradeQty").value = 1;
+
+  document.getElementById("tradePrice").value = price;
+
+
+  openPage("chart",null);
+
+
+  setTimeout(function(){
+
+    if(symbol !== "BTC/USDT"){
+
+      alert(
+        symbol +
+        " selected as demo signal.\n\n" +
+        "For this version, the main chart order simulator uses BTC/USDT."
       );
 
-    },300);
+    }
+
+  },300);
+
+}
+
+
+/* =========================================
+   CLOSE POSITION
+========================================= */
+
+function closeTrade(id){
+
+  const index =
+    account.positions.findIndex(
+      p => p.id === id
+    );
+
+
+  if(index === -1){
+    return;
+  }
+
+
+  const position =
+    account.positions[index];
+
+
+  const exitPrice =
+    Number(
+      prompt(
+        "Enter demo exit price:",
+        position.current
+      )
+    );
+
+
+  if(!exitPrice || exitPrice <= 0){
+
+    return;
+
+  }
+
+
+  let pnl;
+
+
+  if(position.side === "LONG"){
+
+    pnl =
+      (exitPrice - position.entry) *
+      position.qty;
+
+  }else{
+
+    pnl =
+      (position.entry - exitPrice) *
+      position.qty;
+
+  }
+
+
+  const originalValue =
+    position.entry * position.qty;
+
+
+  account.balance +=
+    originalValue + pnl;
+
+
+  account.realizedPnL += pnl;
+
+
+  account.history.unshift({
+
+    symbol:position.symbol,
+
+    side:position.side,
+
+    entry:position.entry,
+
+    exit:exitPrice,
+
+    pnl:pnl,
+
+    time:new Date().toLocaleString()
+
+  });
+
+
+  account.positions.splice(index,1);
+
+  saveAccount();
+
+
+  addChatMessage(
+    "📕 Position closed • " +
+    position.symbol +
+    " • " +
+    (pnl >= 0 ? "Profit " : "Loss ") +
+    money(pnl)
+  );
+
+
+  updateUI();
+
+}
+
+
+/* =========================================
+   DEMO PRICE SIMULATION
+========================================= */
+
+function updateDemoPrices(){
+
+  account.positions.forEach(function(position){
+
+    /*
+      This is only a local educational simulation.
+      It does NOT execute real orders.
+    */
+
+    const movement =
+      (Math.random() - 0.5) *
+      position.entry *
+      0.002;
+
+    position.current =
+      Math.max(
+        1,
+        position.current + movement
+      );
+
+
+    if(position.side === "LONG"){
+
+      position.pnl =
+        (position.current - position.entry) *
+        position.qty;
+
+    }else{
+
+      position.pnl =
+        (position.entry - position.current) *
+        position.qty;
+
+    }
+
+  });
+
+
+  saveAccount();
+
+  updateUI();
+
+}
+
+
+setInterval(
+  updateDemoPrices,
+  3000
+);
+
+
+/* =========================================
+   TOTAL UNREALIZED PNL
+========================================= */
+
+function unrealizedPnL(){
+
+  return account.positions.reduce(
+    function(total,p){
+      return total + p.pnl;
+    },
+    0
+  );
+
+}
+
+
+/* =========================================
+   UPDATE UI
+========================================= */
+
+function updateUI(){
+
+  const pnl =
+    account.realizedPnL +
+    unrealizedPnL();
+
+
+  setText(
+    "homeBalance",
+    money(account.balance)
+  );
+
+  setText(
+    "paperBalance",
+    money(account.balance)
+  );
+
+
+  setText(
+    "homePositions",
+    account.positions.length
+  );
+
+  setText(
+    "paperPositions",
+    account.positions.length
+  );
+
+
+  setText(
+    "homeTrades",
+    account.history.length +
+    account.positions.length
+  );
+
+  setText(
+    "paperTrades",
+    account.history.length +
+    account.positions.length
+  );
+
+
+  setText(
+    "homePnL",
+    money(pnl)
+  );
+
+  setText(
+    "paperPnL",
+    money(pnl)
+  );
+
+
+  renderPositions();
+
+  renderHistory();
+
+}
+
+
+function setText(id,value){
+
+  const element =
+    document.getElementById(id);
+
+  if(element){
+
+    element.textContent = value;
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================================
+   POSITIONS
+========================================= */
+
+function renderPositions(){
+
+  const box =
+    document.getElementById("positions");
+
+
+  if(!account.positions.length){
+
+    box.innerHTML =
+      '<p style="color:#71839a;font-size:11px;">' +
+      'No open paper positions.' +
+      '</p>';
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    account.positions.map(
+      function(p){
+
+        return `
+
+        <div class="position">
+
+          <div class="position-grid">
+
+            <div>
+              <div class="position-label">SYMBOL</div>
+              <div class="position-value">
+                ${p.symbol}
+              </div>
+            </div>
+
+            <div>
+              <div class="position-label">SIDE</div>
+              <div class="position-value ${p.side === "LONG" ? "green" : "red"}">
+                ${p.side}
+              </div>
+            </div>
+
+            <div>
+              <div class="position-label">ENTRY</div>
+              <div class="position-value">
+                ${p.entry}
+              </div>
+            </div>
+
+            <div>
+              <div class="position-label">CURRENT</div>
+              <div class="position-value">
+                ${p.current.toFixed(2)}
+              </div>
+            </div>
+
+            <div>
+              <div class="position-label">P&L</div>
+              <div class="position-value ${p.pnl >= 0 ? "green" : "red"}">
+                ${money(p.pnl)}
+              </div>
+            </div>
+
+          </div>
+
+          <button
+            class="btn btn-red"
+            style="margin-top:12px"
+            onclick="closeTrade(${p.id})">
+
+            Close Demo Trade
+
+          </button>
+
+        </div>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+/* =========================================
+   HISTORY
+========================================= */
+
+function renderHistory(){
+
+  const table =
+    document.getElementById("history");
+
+
+  if(!account.history.length){
+
+    table.innerHTML =
+      `<tr>
+        <td colspan="5"
+            style="color:#71839a">
+          No completed trades yet.
+        </td>
+      </tr>`;
+
+    return;
+
+  }
+
+
+  table.innerHTML =
+    account.history.map(
+      function(h){
+
+        return `
+
+        <tr>
+
+          <td>${h.symbol}</td>
+
+          <td class="${h.side === "LONG" ? "green" : "red"}">
+            ${h.side}
+          </td>
+
+          <td>${h.entry}</td>
+
+          <td>${h.exit}</td>
+
+          <td class="${h.pnl >= 0 ? "green" : "red"}">
+            ${money(h.pnl)}
+          </td>
+
+        </tr>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+/* =========================================
+   CHAT TRADE MESSAGE
+========================================= */
+
+function addTradeChat(trade){
+
+  addChatMessage(
+    "📈 New Paper Trade • " +
+    trade.symbol +
+    " • " +
+    (trade.side === "LONG" ? "🟢 BUY / LONG" : "🔴 SELL / SHORT") +
+    " • Qty " +
+    trade.qty +
+    " • Entry " +
+    trade.entry
+  );
+
+}
+
+
+function addChatMessage(text){
+
+  const box =
+    document.getElementById("chatBox");
+
+
+  if(!box){
+    return;
+  }
+
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "message other";
+
+  message.textContent =
+    text;
+
+  box.appendChild(message);
+
+  box.scrollTop =
+    box.scrollHeight;
+
+}
+
+
+/* =========================================
+   CHAT
+========================================= */
+
+function handleChat(event){
+
+  if(event.key === "Enter"){
+
+    sendMessage();
+
+  }
+
+}
+
+
+function sendMessage(){
+
+  const input =
+    document.getElementById("chatInput");
+
+
+  const text =
+    input.value.trim();
+
+
+  if(!text){
+    return;
+  }
+
+
+  const box =
+    document.getElementById("chatBox");
+
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "message me";
+
+  message.textContent =
+    text;
+
+  box.appendChild(message);
+
+
+  input.value = "";
+
+  box.scrollTop =
+    box.scrollHeight;
+
+}
+
+
+/* =========================================
+   WHY WAIT
+========================================= */
+
+function showWhy(symbol){
+
+  alert(
+    symbol +
+    "\n\n🟡 WAIT\n\n" +
+    "All confirmations are not complete.\n\n" +
+    "Learning rule:\n" +
+    "No confirmation = No trade."
+  );
+
+}
+
+
+/* =========================================
    CHART SYMBOL
-===================================================== */
+========================================= */
 
-function changeChart(){
+function setSymbol(symbol){
 
-  const select =
-    document.getElementById("chartSymbol");
-
-  const symbol =
-    select.value;
+  /*
+    TradingView embedded widget can be changed
+    by rebuilding the widget container.
+  */
 
   const container =
-    document.getElementById(
-      "tradingviewContainer"
-    );
+    document.getElementById("tvContainer");
+
+
+  if(!container){
+    return;
+  }
+
 
   container.innerHTML = "";
 
@@ -2722,8 +2340,6 @@ function changeChart(){
 
   widget.className =
     "tradingview-widget-container__widget";
-
-  container.appendChild(widget);
 
 
   const script =
@@ -2767,820 +2383,36 @@ function changeChart(){
 
       calendar:false,
 
-      support_host:
-        "https://www.tradingview.com"
+      support_host:"https://www.tradingview.com"
 
     });
 
 
+  container.appendChild(widget);
+
   container.appendChild(script);
 
-}
 
-
-/* =====================================================
-   FULLSCREEN CHART
-===================================================== */
-
-function toggleChartFullscreen(){
-
-  document.body.classList.toggle(
-    "chart-fullscreen"
-  );
-
-
-  setTimeout(function(){
-
-    window.dispatchEvent(
-      new Event("resize")
-    );
-
-  },300);
+  document.querySelector(
+    ".chart-symbol"
+  ).textContent =
+    symbol.replace("BINANCE:","") +
+    " • LIVE CHART";
 
 }
 
 
-/* =====================================================
-   KEYBOARD ESC
-===================================================== */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Escape"){
-
-      document.body.classList.remove(
-        "chart-fullscreen"
-      );
-
-      setTimeout(function(){
-
-        window.dispatchEvent(
-          new Event("resize")
-        );
-
-      },200);
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   CREATE PAPER TRADE
-===================================================== */
-
-function createPaperTrade(){
-
-  const symbol =
-    document.getElementById(
-      "tradeSymbol"
-    ).value;
-
-  const side =
-    document.getElementById(
-      "tradeSide"
-    ).value;
-
-  const entry =
-    Number(
-      document.getElementById(
-        "entryPrice"
-      ).value
-    );
-
-  const quantity =
-    Number(
-      document.getElementById(
-        "tradeQuantity"
-      ).value
-    );
-
-  const stopLoss =
-    Number(
-      document.getElementById(
-        "stopLoss"
-      ).value
-    ) || 0;
-
-  const target =
-    Number(
-      document.getElementById(
-        "targetPrice"
-      ).value
-    ) || 0;
-
-
-  if(!entry || entry <= 0){
-
-    alert("Please enter a valid entry price.");
-
-    return;
-
-  }
-
-
-  if(!quantity || quantity <= 0){
-
-    alert("Please enter a valid quantity.");
-
-    return;
-
-  }
-
-
-  const requiredMargin =
-    entry * quantity;
-
-
-  if(requiredMargin > demoBalance){
-
-    alert(
-      "Demo balance is not enough.\n\n" +
-      "Required: " +
-      money(requiredMargin) +
-      "\nAvailable: " +
-      money(demoBalance)
-    );
-
-    return;
-
-  }
-
-
-  const trade = {
-
-    id:Date.now(),
-
-    symbol:symbol,
-
-    side:side,
-
-    entry:entry,
-
-    quantity:quantity,
-
-    stopLoss:stopLoss,
-
-    target:target,
-
-    margin:requiredMargin,
-
-    createdAt:new Date().toLocaleString()
-
-  };
-
-
-  demoBalance -= requiredMargin;
-
-  openTrades.push(trade);
-
-  saveDemo();
-
-  updateDemoUI();
-
-
-  const result =
-    document.getElementById(
-      "tradeResult"
-    );
-
-  result.style.display =
-    "block";
-
-  result.innerHTML =
-
-    "<strong class='green'>" +
-    "✅ Demo trade created" +
-    "</strong>" +
-
-    "<br><br>" +
-
-    symbol +
-    " • " +
-    side +
-
-    "<br>" +
-
-    "Entry: " +
-    entry +
-
-    "<br>" +
-
-    "Quantity: " +
-    quantity +
-
-    "<br>" +
-
-    "Virtual margin: " +
-    money(requiredMargin);
-
-
-  document.getElementById(
-    "entryPrice"
-  ).value = "";
-
-  document.getElementById(
-    "tradeQuantity"
-  ).value = "";
-
-  document.getElementById(
-    "stopLoss"
-  ).value = "";
-
-  document.getElementById(
-    "targetPrice"
-  ).value = "";
-
-}
-
-
-/* =====================================================
-   CLOSE PAPER TRADE
-===================================================== */
-
-function closeTrade(id){
-
-  const index =
-    openTrades.findIndex(
-      function(trade){
-
-        return trade.id === id;
-
-      }
-    );
-
-
-  if(index === -1){
-
-    return;
-
-  }
-
-
-  const trade =
-    openTrades[index];
-
-
-  const closePriceText =
-    prompt(
-      "Enter demo exit price for " +
-      trade.symbol
-    );
-
-
-  if(closePriceText === null){
-
-    return;
-
-  }
-
-
-  const exit =
-    Number(closePriceText);
-
-
-  if(!exit || exit <= 0){
-
-    alert("Invalid exit price.");
-
-    return;
-
-  }
-
-
-  let pnl = 0;
-
-
-  if(trade.side === "BUY"){
-
-    pnl =
-      (exit - trade.entry)
-      * trade.quantity;
-
-  }
-  else{
-
-    pnl =
-      (trade.entry - exit)
-      * trade.quantity;
-
-  }
-
-
-  demoBalance +=
-    trade.margin + pnl;
-
-
-  const completed = {
-
-    ...trade,
-
-    exit:exit,
-
-    pnl:pnl,
-
-    closedAt:
-      new Date().toLocaleString()
-
-  };
-
-
-  tradeHistory.unshift(
-    completed
-  );
-
-
-  openTrades.splice(
-    index,
-    1
-  );
-
-
-  saveDemo();
-
-  updateDemoUI();
-
-}
-
-
-/* =====================================================
-   UPDATE UI
-===================================================== */
-
-function updateDemoUI(){
-
-  const total =
-    tradeHistory.length;
-
-  const wins =
-    tradeHistory.filter(
-      function(t){
-
-        return Number(t.pnl) > 0;
-
-      }
-    ).length;
-
-  const losses =
-    tradeHistory.filter(
-      function(t){
-
-        return Number(t.pnl) < 0;
-
-      }
-    ).length;
-
-
-  const realized =
-    tradeHistory.reduce(
-      function(sum,t){
-
-        return sum +
-          Number(t.pnl || 0);
-
-      },
-      0
-    );
-
-
-  document.getElementById(
-    "dashboardBalance"
-  ).textContent =
-    money(demoBalance);
-
-
-  document.getElementById(
-    "paperBalance"
-  ).textContent =
-    money(demoBalance);
-
-
-  document.getElementById(
-    "availableBalance"
-  ).textContent =
-    money(demoBalance);
-
-
-  document.getElementById(
-    "openTrades"
-  ).textContent =
-    openTrades.length;
-
-
-  document.getElementById(
-    "tradeCount"
-  ).textContent =
-    total;
-
-
-  document.getElementById(
-    "dashboardPnL"
-  ).textContent =
-    money(realized);
-
-
-  document.getElementById(
-    "realizedPnL"
-  ).textContent =
-    money(realized);
-
-
-  document.getElementById(
-    "progressTotal"
-  ).textContent =
-    total;
-
-
-  document.getElementById(
-    "progressWins"
-  ).textContent =
-    wins;
-
-
-  document.getElementById(
-    "progressLosses"
-  ).textContent =
-    losses;
-
-
-  const winRate =
-    total > 0
-      ? Math.round(
-          wins / total * 100
-        )
-      : 0;
-
-
-  document.getElementById(
-    "winRate"
-  ).textContent =
-    winRate + "%";
-
-
-  document.getElementById(
-    "tradeStatus"
-  ).textContent =
-    openTrades.length > 0
-      ? "OPEN"
-      : "READY";
-
-
-  renderOpenTrades();
-
-  renderHistory();
-
-}
-
-
-/* =====================================================
-   OPEN TRADES UI
-===================================================== */
-
-function renderOpenTrades(){
-
-  const box =
-    document.getElementById(
-      "openTradeList"
-    );
-
-
-  if(openTrades.length === 0){
-
-    box.innerHTML =
-      "<p style='color:#64748b;font-size:12px;'>" +
-      "No open paper trades." +
-      "</p>";
-
-    return;
-
-  }
-
-
-  let html = "";
-
-
-  openTrades.forEach(
-    function(trade){
-
-      html +=
-
-      "<div style='" +
-      "background:#0b1220;" +
-      "border:1px solid #24304a;" +
-      "border-radius:12px;" +
-      "padding:14px;" +
-      "margin-bottom:10px;" +
-      "'>" +
-
-      "<strong>" +
-      trade.symbol +
-      "</strong>" +
-
-      " • " +
-
-      "<strong class='" +
-      (trade.side === "BUY"
-        ? "green"
-        : "red") +
-      "'>" +
-      trade.side +
-      "</strong>" +
-
-      "<br><br>" +
-
-      "<span style='color:#94a3b8;font-size:11px;'>" +
-
-      "Entry: " +
-      trade.entry +
-
-      " • Qty: " +
-      trade.quantity +
-
-      "<br>" +
-
-      "Margin: " +
-      money(trade.margin) +
-
-      "</span>" +
-
-      "<div class='button-row'>" +
-
-      "<button class='btn btn-red'" +
-
-      " onclick='closeTrade(" +
-      trade.id +
-      ")'>" +
-
-      "Close Demo Trade" +
-
-      "</button>" +
-
-      "</div>" +
-
-      "</div>";
-
-    }
-  );
-
-
-  box.innerHTML =
-    html;
-
-}
-
-
-/* =====================================================
-   HISTORY UI
-===================================================== */
-
-function renderHistory(){
-
-  const box =
-    document.getElementById(
-      "historyList"
-    );
-
-
-  if(tradeHistory.length === 0){
-
-    box.innerHTML =
-      "<p style='color:#64748b;font-size:12px;'>" +
-      "No completed trades." +
-      "</p>";
-
-    return;
-
-  }
-
-
-  let html =
-    "<table class='trade-table'>" +
-
-    "<tr>" +
-
-    "<th>Symbol</th>" +
-    "<th>Side</th>" +
-    "<th>Entry</th>" +
-    "<th>Exit</th>" +
-    "<th>P&L</th>" +
-
-    "</tr>";
-
-
-  tradeHistory.forEach(
-    function(trade){
-
-      const pnl =
-        Number(trade.pnl || 0);
-
-
-      html +=
-
-      "<tr>" +
-
-      "<td>" +
-      trade.symbol +
-      "</td>" +
-
-      "<td class='" +
-      (trade.side === "BUY"
-        ? "green"
-        : "red") +
-      "'>" +
-      trade.side +
-      "</td>" +
-
-      "<td>" +
-      trade.entry +
-      "</td>" +
-
-      "<td>" +
-      trade.exit +
-      "</td>" +
-
-      "<td class='" +
-      (pnl >= 0
-        ? "green"
-        : "red") +
-      "'>" +
-
-      (pnl >= 0 ? "+" : "") +
-
-      money(pnl) +
-
-      "</td>" +
-
-      "</tr>";
-
-    }
-  );
-
-
-  html +=
-    "</table>";
-
-
-  box.innerHTML =
-    html;
-
-}
-
-
-/* =====================================================
-   RESET DEMO
-===================================================== */
-
-function resetDemo(){
-
-  const ok =
-    confirm(
-      "Reset all paper trading data?"
-    );
-
-
-  if(!ok){
-
-    return;
-
-  }
-
-
-  demoBalance =
-    STARTING_BALANCE;
-
-  openTrades =
-    [];
-
-  tradeHistory =
-    [];
-
-  saveDemo();
-
-  updateDemoUI();
-
-  alert(
-    "Demo account reset to ₹1,00,000."
-  );
-
-}
-
-
-/* =====================================================
-   WHY WAIT
-===================================================== */
-
-function showWhy(symbol){
-
-  alert(
-
-    symbol +
-
-    "\n\n🟡 WAIT\n\n" +
-
-    "This is an educational checklist.\n\n" +
-
-    "Before practicing a trade, study:\n" +
-
-    "• Market structure\n" +
-
-    "• Support / resistance\n" +
-
-    "• Candle confirmation\n" +
-
-    "• Stop-loss idea\n" +
-
-    "• Risk / reward\n\n" +
-
-    "No signal guarantees profit."
-
-  );
-
-}
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-function handleChat(event){
-
-  if(event.key === "Enter"){
-
-    sendMessage();
-
-  }
-
-}
-
-
-function sendMessage(){
-
-  const input =
-    document.getElementById(
-      "chatInput"
-    );
-
-  const box =
-    document.getElementById(
-      "chatBox"
-    );
-
-
-  const text =
-    input.value.trim();
-
-
-  if(!text){
-
-    return;
-
-  }
-
-
-  const message =
-    document.createElement(
-      "div"
-    );
-
-
-  message.className =
-    "message me";
-
-
-  message.textContent =
-    text;
-
-
-  box.appendChild(
-    message
-  );
-
-
-  input.value = "";
-
-
-  box.scrollTop =
-    box.scrollHeight;
-
-}
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-updateDemoUI();
+/* =========================================
+   START
+========================================= */
+
+updateUI();
 
 console.log(
-  "Odisha Trading Learning - Demo Mode Ready"
+  "Odisha Trading Learning — Created by Babulu Naik • Village Boy"
 );
 
 </script>
 
-
 </body>
-
 </html>
