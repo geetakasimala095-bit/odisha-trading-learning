@@ -2,7 +2,7 @@
   "name": "Babulu Trading Demo",
   "short_name": "Babulu Trading",
   "description": "Trading learning and paper trading app",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "display_override": [
