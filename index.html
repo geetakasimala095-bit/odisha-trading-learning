@@ -1,1572 +1,568 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="or">
 <head>
- <meta name="theme-color" content="#080b12">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes"> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Babulu Trading — Demo</title>
-
-<meta name="theme-color" content="#080b12">
-<link rel="manifest" href="./manifest.json">
-
-<link rel="icon" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Konark Gananatya | Online Ticket Booking</title>
 
 <style>
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+  font-family:Arial,sans-serif;
 }
 
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080b12;
-  color:#e5e7eb;
+body{
+  background:#080808;
+  color:white;
 }
 
-button,input{
-  font:inherit;
+header{
+  text-align:center;
+  padding:20px 10px;
+  background:linear-gradient(135deg,#7b0000,#e58b00);
 }
 
-button{
-  cursor:pointer;
-}
-
-.app{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-
-/* ================= TOP BAR ================= */
-
-.topbar{
-  height:58px;
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 14px;
-  background:#0d1119;
-  border-bottom:1px solid #202938;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:190px;
-}
-
-.brand-icon{
-  width:36px;
-  height:36px;
-  border-radius:9px;
-  background:#16a34a;
-  display:grid;
-  place-items:center;
-  font-size:19px;
-}
-
-.brand-title{
-  font-size:14px;
-  font-weight:700;
-}
-
-.brand-sub{
-  color:#7f8b9d;
-  font-size:9px;
-  margin-top:2px;
-}
-
-.demo{
-  color:#facc15;
-  background:#211b06;
-  border:1px solid #69570c;
-  border-radius:20px;
-  padding:6px 10px;
-  font-size:10px;
-  font-weight:700;
-}
-
-/* ================= MAIN ================= */
-
-.main{
-  flex:1;
-  min-height:0;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 310px;
-}
-
-/* ================= CHART ================= */
-
-.chart-area{
-  min-width:0;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-  background:#080b12;
-}
-
-.chart-toolbar{
-  min-height:46px;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:6px 9px;
-  background:#0d1119;
-  border-bottom:1px solid #202938;
-  overflow-x:auto;
-  white-space:nowrap;
-}
-
-.tool-btn,
-.time-btn{
-  border:1px solid #273143;
-  background:#131a25;
-  color:#aeb8c8;
-  border-radius:6px;
-  padding:7px 9px;
-  font-size:10px;
-}
-
-.tool-btn:hover,
-.time-btn:hover,
-.time-btn.active{
-  background:#1d2939;
-  color:#fff;
-  border-color:#3a4b64;
-}
-
-.symbol{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-right:5px;
-}
-
-.symbol strong{
-  color:#fff;
-  font-size:12px;
-}
-
-.symbol span{
-  color:#64748b;
-  font-size:9px;
-}
-
-.chart{
-  position:relative;
-  flex:1;
-  min-height:0;
-  background:#0b0f16;
-}
-
-.tv-container{
-  width:100%;
-  height:100%;
-}
-
-.tv-widget{
-  width:100%;
-  height:100%;
-}
-
-/* ================= CHART OVERLAY ================= */
-
-.chart-status{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  z-index:5;
-  background:rgba(10,14,21,.9);
-  border:1px solid #263244;
-  border-radius:7px;
-  padding:7px 9px;
-  font-size:9px;
-  color:#94a3b8;
-}
-
-.chart-status b{
-  color:#22c55e;
-}
-
-/* ================= RIGHT PANEL ================= */
-
-.panel{
-  min-height:0;
-  overflow-y:auto;
-  background:#0d1119;
-  border-left:1px solid #202938;
-  padding:12px;
-}
-
-.panel::-webkit-scrollbar{
-  width:5px;
-}
-
-.panel::-webkit-scrollbar-thumb{
-  background:#263244;
-  border-radius:10px;
-}
-
-.section{
-  background:#111722;
-  border:1px solid #202b3d;
-  border-radius:10px;
-  padding:12px;
-  margin-bottom:10px;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-  font-size:11px;
-  font-weight:700;
-}
-
-.muted{
-  color:#728096;
-  font-size:9px;
-}
-
-/* ================= BALANCE ================= */
-
-.balance{
-  font-size:23px;
-  font-weight:700;
-  margin:5px 0;
-}
-
-.balance-label{
-  color:#718096;
-  font-size:9px;
-}
-
-.demo-note{
-  color:#64748b;
-  font-size:8px;
-}
-
-/* ================= MARKET ================= */
-
-.market-row{
-  display:flex;
-  justify-content:space-between;
-  padding:7px 0;
-  border-bottom:1px solid #1c2635;
-}
-
-.market-row:last-child{
-  border-bottom:0;
-}
-
-.market-name{
-  font-size:10px;
-}
-
-.market-price{
-  font-size:10px;
-  color:#cbd5e1;
-}
-
-.green{
-  color:#22c55e;
-}
-
-.red{
-  color:#ef4444;
-}
-
-.yellow{
-  color:#facc15;
-}
-
-/* ================= ORDER ================= */
-
-.order-tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5px;
-  margin-bottom:9px;
-}
-
-.order-tab{
-  border:1px solid #29364a;
-  background:#151d29;
-  color:#94a3b8;
-  padding:8px;
-  border-radius:6px;
-  font-size:10px;
-  font-weight:700;
-}
-
-.order-tab.buy-active{
-  background:#064e2b;
-  color:#4ade80;
-  border-color:#15803d;
-}
-
-.order-tab.sell-active{
-  background:#4c1111;
-  color:#f87171;
-  border-color:#991b1b;
-}
-
-.field{
+header h1{
+  font-size:25px;
   margin-bottom:8px;
 }
 
-.field label{
-  display:block;
-  color:#718096;
-  font-size:9px;
-  margin-bottom:4px;
+header p{
+  font-size:15px;
 }
 
-.field input{
-  width:100%;
-  border:1px solid #29364a;
-  background:#0b1018;
-  color:#fff;
-  border-radius:6px;
-  padding:8px;
-  outline:none;
-  font-size:10px;
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
 }
 
-.field input:focus{
-  border-color:#3b82f6;
+.show{
+  background:#151515;
+  border:1px solid #333;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  text-align:center;
 }
 
-.order-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
-  margin-top:8px;
+.show h2{
+  color:#ffd43b;
+  margin-bottom:8px;
 }
 
-.buy-btn,
-.sell-btn{
-  border:0;
-  border-radius:7px;
-  padding:11px 5px;
-  color:#fff;
-  font-size:10px;
-  font-weight:700;
-}
-
-.buy-btn{
-  background:#16a34a;
-}
-
-.sell-btn{
-  background:#dc2626;
-}
-
-.buy-btn:hover{
-  background:#15803d;
-}
-
-.sell-btn:hover{
-  background:#b91c1c;
-}
-
-/* ================= POSITION ================= */
-
-.position{
-  background:#0c131d;
-  border:1px solid #263244;
-  border-radius:7px;
-  padding:9px;
-  margin-top:7px;
-}
-
-.position-head{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:6px;
-}
-
-.position-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5px;
-}
-
-.pos-item{
-  background:#111a25;
-  padding:6px;
-  border-radius:5px;
-}
-
-.pos-label{
-  color:#64748b;
-  font-size:8px;
-}
-
-.pos-value{
-  margin-top:3px;
-  font-size:10px;
-}
-
-/* ================= SIGNAL ================= */
-
-.signal-box{
+.stage{
+  width:90%;
+  margin:20px auto;
+  background:linear-gradient(90deg,#5d0000,#d89b00,#5d0000);
+  padding:15px;
+  text-align:center;
   border-radius:8px;
-  padding:10px;
-  background:#171b13;
-  border:1px solid #4b4b1d;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
-.signal-main{
-  font-size:16px;
-  font-weight:700;
+.block{
+  background:#111;
+  border:1px solid #333;
+  border-radius:12px;
+  margin:15px 0;
+  padding:15px;
 }
 
-.signal-reason{
-  color:#9ca3af;
-  font-size:9px;
-  line-height:1.5;
-  margin-top:5px;
+.block h3{
+  color:#ffcc00;
+  margin-bottom:12px;
 }
 
-/* ================= HISTORY ================= */
-
-.history{
-  max-height:180px;
-  overflow:auto;
+.row{
+  display:flex;
+  gap:6px;
+  margin-bottom:7px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-.history-row{
-  display:grid;
-  grid-template-columns:55px 1fr 65px;
-  gap:5px;
+.seat{
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:6px;
+  background:#178c42;
+  color:white;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.seat:hover{
+  transform:scale(1.05);
+}
+
+.seat.selected{
+  background:#ff9800;
+  color:#000;
+}
+
+.seat.booked{
+  background:#777;
+  color:#ddd;
+  cursor:not-allowed;
+}
+
+.info{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin:15px 0;
+}
+
+.info span{
+  padding:8px 12px;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.available{
+  background:#178c42;
+}
+
+.selectedBox{
+  background:#ff9800;
+  color:#000;
+}
+
+.bookedBox{
+  background:#777;
+}
+
+.booking{
+  background:#151515;
+  padding:20px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+.booking h2{
+  color:#ffd43b;
+  margin-bottom:15px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border-radius:7px;
+  border:1px solid #555;
+  background:#0d0d0d;
+  color:white;
+}
+
+.payment{
+  margin-top:15px;
+  padding:15px;
+  border:1px dashed #ffb000;
+  border-radius:10px;
+  text-align:center;
+}
+
+.payment h3{
+  color:#ffb000;
+  margin-bottom:8px;
+}
+
+.qr-placeholder{
+  margin:15px auto;
+  width:180px;
+  height:180px;
+  border:2px dashed #777;
+  display:flex;
   align-items:center;
-  padding:7px 0;
-  border-bottom:1px solid #1d2736;
-  font-size:8px;
+  justify-content:center;
+  color:#aaa;
+  border-radius:10px;
 }
 
-.history-row:last-child{
-  border-bottom:0;
+button.book{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border:none;
+  border-radius:8px;
+  background:#e09a00;
+  color:#000;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.empty{
-  color:#64748b;
-  font-size:9px;
+button.book:hover{
+  background:#ffc107;
+}
+
+.total{
+  font-size:20px;
   text-align:center;
-  padding:10px;
+  margin:15px 0;
+  color:#00ff88;
 }
 
-/* ================= FOOTER ================= */
-
-.footer{
-  color:#64748b;
-  font-size:8px;
-  line-height:1.5;
+.ticket{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  background:white;
+  color:#111;
+  border-radius:12px;
   text-align:center;
-  padding:3px;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:900px){
-
-  html,body{
-    overflow:auto;
-  }
-
-  .app{
-    height:auto;
-    min-height:100vh;
-  }
-
-  .main{
-    grid-template-columns:1fr;
-  }
-
-  .chart-area{
-    height:65vh;
-    min-height:450px;
-  }
-
-  .panel{
-    border-left:0;
-    border-top:1px solid #202938;
-    max-height:none;
-  }
-
-  .brand{
-    min-width:auto;
-  }
-
+.ticket h2{
+  color:#8b0000;
 }
 
-@media(max-width:520px){
-
-  .topbar{
-    height:52px;
-    padding:0 9px;
+@media(max-width:500px){
+  .seat{
+    width:32px;
+    height:32px;
+    font-size:10px;
   }
 
-  .brand-title{
-    font-size:12px;
+  header h1{
+    font-size:20px;
   }
-
-  .brand-sub{
-    font-size:8px;
-  }
-
-  .brand-icon{
-    width:31px;
-    height:31px;
-    font-size:16px;
-  }
-
-  .chart-area{
-    height:62vh;
-    min-height:390px;
-  }
-
-  .chart-toolbar{
-    min-height:42px;
-  }
-
-  .panel{
-    padding:8px;
-  }
-
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-<!-- TOP BAR -->
-<header class="topbar">
-
-  <div class="brand">
-
-    <div class="brand-icon">📈</div>
-
-    <div>
-      <div class="brand-title">
-        Babulu Trading
-      </div>
-
-      <div class="brand-sub">
-        Created by Babulu Naik • Village Boy
-      </div>
-    </div>
-
-  </div>
-
-  <div class="demo">
-    DEMO / PAPER
-  </div>
-
+<header>
+  <h1>🎭 KONARK GANANATYA</h1>
+  <p>“ତୁ ବୋଧେ ମୋ ଭାଗ୍ୟରେ ନାହୁଁ”</p>
 </header>
 
+<div class="container">
 
-<div class="main">
+<div class="show">
+  <h2>MAA GAJALAXMI PUJA JATRA COMMITTEE</h2>
+  <p>📍 Chitraposi, Mayurbhanj, Odisha</p>
+  <p>📅 02.11.2026</p>
+  <p>🎭 One Night Jatra Show</p>
+</div>
 
-<!-- ================= CHART AREA ================= -->
+<div class="stage">
+  🎭 STAGE
+</div>
 
-<section class="chart-area">
+<div class="info">
+  <span class="available">Available</span>
+  <span class="selectedBox">Selected</span>
+  <span class="bookedBox">Booked</span>
+</div>
 
-  <div class="chart-toolbar">
+<div id="seatArea"></div>
 
-    <div class="symbol">
-      <strong id="currentSymbol">BTCUSDT</strong>
-      <span>BINANCE</span>
-    </div>
+<div class="booking">
 
-    <button class="tool-btn" onclick="changeSymbol()">
-      🔎 Symbol
-    </button>
+<h2>🎟️ Ticket Booking</h2>
 
-    <button class="time-btn" onclick="setTime('1')">
-      1m
-    </button>
+<input id="name" type="text" placeholder="Enter Your Name">
 
-    <button class="time-btn active" onclick="setTime('5')">
-      5m
-    </button>
+<input id="mobile" type="tel"
+       placeholder="Enter Mobile Number"
+       maxlength="10">
 
-    <button class="time-btn" onclick="setTime('15')">
-      15m
-    </button>
+<div id="selectedSeats">
+  Selected Seat: None
+</div>
 
-    <button class="time-btn" onclick="setTime('60')">
-      1H
-    </button>
+<div class="total">
+  Total Amount: ₹<span id="total">0</span>
+</div>
 
-    <button class="time-btn" onclick="setTime('240')">
-      4H
-    </button>
+<div class="payment">
 
-    <button class="time-btn" onclick="setTime('D')">
-      1D
-    </button>
+<h3>💳 UPI PAYMENT</h3>
 
-    <button class="tool-btn" onclick="alert('Use TradingView built-in Indicators and Drawing tools inside the chart.')">
-      📊 Indicators
-    </button>
+<p>UPI ID ଏବେ ଯୋଡାଯାଇନାହିଁ</p>
 
-    <button class="tool-btn" onclick="toggleFullscreen()">
-      ⛶ Fullscreen
-    </button>
+<div class="qr-placeholder">
+  QR PLACEHOLDER
+</div>
 
-  </div>
+<p>UPI ID ପରେ add କଲେ ଏଠାରେ automatic QR generate ହେବ।</p>
+
+<input id="utr"
+       type="text"
+       placeholder="Enter UTR / Transaction ID">
+
+</div>
+
+<button class="book" onclick="submitBooking()">
+  Submit Booking
+</button>
+
+</div>
+
+<div class="ticket" id="ticket">
+
+<h2>🎟️ BOOKING SUBMITTED</h2>
+
+<p id="ticketText"></p>
+
+<br>
+
+<p>
+Payment verification ପରେ ticket Confirmed ହେବ।
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================================
+   SETTINGS
+================================ */
+
+const rows = [
+  {name:"A", price:300},
+  {name:"B", price:300},
+  {name:"C", price:250},
+  {name:"D", price:250},
+  {name:"E", price:200},
+  {name:"F", price:200},
+  {name:"G", price:150},
+  {name:"H", price:150},
+  {name:"I", price:150}
+];
+
+const seatsPerRow = 15;
 
 
-  <div class="chart">
+/* ================================
+   BOOKED SEATS
+   Later this will come from database
+================================ */
 
-    <div class="tv-container">
+let bookedSeats =
+JSON.parse(localStorage.getItem("bookedSeats") || "[]");
 
-      <div
-        class="tradingview-widget-container"
-        style="height:100%;width:100%;">
+let selectedSeats = [];
 
-        <div
-          class="tradingview-widget-container__widget"
-          style="height:100%;width:100%;">
-        </div>
 
-        <script
-          type="text/javascript"
-          src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
-          async>
+/* ================================
+   CREATE SEATS
+================================ */
 
-        {
-          "autosize": true,
-          "symbol": "BINANCE:BTCUSDT",
-          "interval": "5",
-          "timezone": "Asia/Kolkata",
-          "theme": "dark",
-          "style": "1",
-          "locale": "en",
-          "allow_symbol_change": true,
-          "calendar": false,
-          "support_host": "https://www.tradingview.com",
-          "withdateranges": true,
-          "hide_side_toolbar": false,
-          "hide_top_toolbar": false,
-          "save_image": false,
-          "details": true,
-          "hotlist": true,
-          "studies": [
-            "Volume@tv-basicstudies"
-          ]
+const seatArea = document.getElementById("seatArea");
+
+rows.forEach(row => {
+
+  const block = document.createElement("div");
+  block.className = "block";
+
+  const title = document.createElement("h3");
+  title.innerText =
+    `${row.name} BLOCK — ₹${row.price}`;
+
+  block.appendChild(title);
+
+  for(let i=1;i<=seatsPerRow;i++){
+
+    if((i-1)%15===0){
+
+      const seatRow = document.createElement("div");
+      seatRow.className="row";
+
+      for(let j=i;j<i+15 && j<=seatsPerRow;j++){
+
+        const seatID = row.name + j;
+
+        const seat = document.createElement("button");
+
+        seat.className="seat";
+        seat.innerText=seatID;
+
+        if(bookedSeats.includes(seatID)){
+          seat.classList.add("booked");
+          seat.disabled=true;
         }
 
-        </script>
-
-      </div>
-
-    </div>
-
-
-    <div class="chart-status">
-      ● <b>LIVE MARKET DATA</b> • DEMO ORDER MODE
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= RIGHT PANEL ================= -->
-
-<aside class="panel">
-
-
-<!-- BALANCE -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>💰 Demo Wallet</span>
-    <span class="muted">PAPER</span>
-  </div>
-
-  <div class="balance" id="balance">
-    ₹1,00,000.00
-  </div>
-
-  <div class="demo-note">
-    Virtual money only • No real order
-  </div>
-
-</div>
-
-
-<!-- MARKET WATCH -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>Market Watch</span>
-    <span class="muted">DEMO</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">BTC/USDT</span>
-    <span class="market-price green">$117,250</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">ETH/USDT</span>
-    <span class="market-price green">$4,280</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">SOL/USDT</span>
-    <span class="market-price green">$192</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">XAU/USD</span>
-    <span class="market-price yellow">$3,340</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">NIFTY 50</span>
-    <span class="market-price green">24,850</span>
-  </div>
-
-  <div class="market-row">
-    <span class="market-name">BANK NIFTY</span>
-    <span class="market-price red">55,420</span>
-  </div>
-
-</div>
-
-
-<!-- ORDER -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>Demo Order</span>
-    <span class="muted" id="orderSymbol">BTCUSDT</span>
-  </div>
-
-
-  <div class="order-tabs">
-
-    <button
-      id="buyTab"
-      class="order-tab buy-active"
-      onclick="selectSide('BUY')">
-      BUY
-    </button>
-
-    <button
-      id="sellTab"
-      class="order-tab"
-      onclick="selectSide('SELL')">
-      SELL
-    </button>
-
-  </div>
-
-
-  <div class="field">
-
-    <label>Entry Price</label>
-
-    <input
-      id="entry"
-      type="number"
-      value="117250">
-
-  </div>
-
-
-  <div class="field">
-
-    <label>Quantity</label>
-
-    <input
-      id="quantity"
-      type="number"
-      value="0.01"
-      step="0.01">
-
-  </div>
-
-
-  <div class="field">
-
-    <label>Stop Loss</label>
-
-    <input
-      id="sl"
-      type="number"
-      value="116500">
-
-  </div>
-
-
-  <div class="field">
-
-    <label>Take Profit</label>
-
-    <input
-      id="tp"
-      type="number"
-      value="118500">
-
-  </div>
-
-
-  <div class="order-buttons">
-
-    <button
-      class="buy-btn"
-      onclick="openTrade('BUY')">
-      🟢 DEMO BUY
-    </button>
-
-    <button
-      class="sell-btn"
-      onclick="openTrade('SELL')">
-      🔴 DEMO SELL
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- SIGNAL -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>🤖 Learning Signal</span>
-    <span class="yellow">DEMO</span>
-  </div>
-
-  <div class="signal-box">
-
-    <div
-      id="signalMain"
-      class="signal-main yellow">
-      🟡 WAIT
-    </div>
-
-    <div
-      id="signalReason"
-      class="signal-reason">
-
-      Signal is for learning only.
-      Wait for structure + support/resistance
-      + candle confirmation.
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- POSITION -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>📌 Open Position</span>
-    <span id="positionStatus" class="muted">NONE</span>
-  </div>
-
-  <div id="positionBox">
-
-    <div class="empty">
-      No open demo position.
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- HISTORY -->
-
-<div class="section">
-
-  <div class="section-title">
-    <span>📒 Trade History</span>
-    <span id="tradeCount" class="muted">0</span>
-  </div>
-
-  <div
-    id="history"
-    class="history">
-
-    <div class="empty">
-      No demo trades yet.
-    </div>
-
-  </div>
-
-</div>
-
-
-<div class="footer">
-  DEMO ONLY • No real-money trading<br>
-  Created by Babulu Naik — Village Boy
-</div>
-
-</aside>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* =====================================================
-   DEMO TRADING ENGINE
-   ===================================================== */
-
-let balance = 100000;
-
-let currentSide = "BUY";
-
-let currentSymbol = "BTCUSDT";
-
-let position = null;
-
-let history = [];
-
-let currentTimeframe = "5";
-
-
-/* ================= SYMBOL ================= */
-
-function changeSymbol(){
-
-  const symbols = [
-    "BTCUSDT",
-    "ETHUSDT",
-    "SOLUSDT",
-    "XRPUSDT",
-    "BNBUSDT",
-    "DOGEUSDT",
-    "XAUUSD",
-    "EURUSD",
-    "GBPUSD",
-    "USDJPY",
-    "NIFTY",
-    "BANKNIFTY",
-    "SENSEX"
-  ];
-
-  const choice =
-    prompt(
-      "Enter symbol:\n\n" +
-      symbols.join(", ")
-    );
-
-  if(!choice){
-    return;
+        seat.onclick=()=>selectSeat(
+          seatID,
+          row.price,
+          seat
+        );
+
+        seatRow.appendChild(seat);
+      }
+
+      block.appendChild(seatRow);
+    }
   }
 
-  currentSymbol =
-    choice
-      .toUpperCase()
-      .replace("/","");
+  seatArea.appendChild(block);
 
-  document.getElementById(
-    "currentSymbol"
-  ).textContent =
-    currentSymbol;
-
-  document.getElementById(
-    "orderSymbol"
-  ).textContent =
-    currentSymbol;
-
-}
+});
 
 
-/* ================= TIMEFRAME ================= */
+/* ================================
+   SELECT SEAT
+================================ */
 
-function setTime(tf){
+function selectSeat(id,price,button){
 
-  currentTimeframe = tf;
+  if(selectedSeats.some(x=>x.id===id)){
 
-  document
-    .querySelectorAll(".time-btn")
-    .forEach(function(btn){
+    selectedSeats =
+      selectedSeats.filter(x=>x.id!==id);
 
-      btn.classList.remove("active");
+    button.classList.remove("selected");
 
+  }else{
+
+    selectedSeats.push({
+      id:id,
+      price:price
     });
 
-  const buttons =
-    document.querySelectorAll(".time-btn");
-
-  buttons.forEach(function(btn){
-
-    if(
-      btn.textContent === tf + "m" ||
-      (tf === "60" && btn.textContent === "1H") ||
-      (tf === "240" && btn.textContent === "4H") ||
-      (tf === "D" && btn.textContent === "1D")
-    ){
-
-      btn.classList.add("active");
-
-    }
-
-  });
-
-}
-
-
-/* ================= SIDE ================= */
-
-function selectSide(side){
-
-  currentSide = side;
-
-  const buy =
-    document.getElementById("buyTab");
-
-  const sell =
-    document.getElementById("sellTab");
-
-  buy.classList.remove("buy-active");
-  sell.classList.remove("sell-active");
-
-  if(side === "BUY"){
-    buy.classList.add("buy-active");
-  }else{
-    sell.classList.add("sell-active");
+    button.classList.add("selected");
   }
 
+  updateTotal();
 }
 
 
-/* ================= OPEN TRADE ================= */
+/* ================================
+   TOTAL
+================================ */
 
-function openTrade(side){
+function updateTotal(){
 
-  if(position){
+  let total=0;
+
+  selectedSeats.forEach(seat=>{
+    total += seat.price;
+  });
+
+  document.getElementById("total")
+    .innerText=total;
+
+  document.getElementById("selectedSeats")
+    .innerText =
+    selectedSeats.length
+    ? "Selected Seat: "+
+      selectedSeats.map(x=>x.id).join(", ")
+    : "Selected Seat: None";
+}
+
+
+/* ================================
+   BOOKING
+================================ */
+
+function submitBooking(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const mobile =
+    document.getElementById("mobile").value.trim();
+
+  const utr =
+    document.getElementById("utr").value.trim();
+
+  if(!name){
+    alert("Name enter କରନ୍ତୁ");
+    return;
+  }
+
+  if(!/^[0-9]{10}$/.test(mobile)){
+    alert("Valid 10 digit mobile number enter କରନ୍ତୁ");
+    return;
+  }
+
+  if(selectedSeats.length===0){
+    alert("At least one seat select କରନ୍ତୁ");
+    return;
+  }
+
+  if(!utr){
+    alert("UTR / Transaction ID enter କରନ୍ତୁ");
+    return;
+  }
+
+
+  /* Prevent duplicate booking */
+
+  const conflict =
+    selectedSeats.some(seat =>
+      bookedSeats.includes(seat.id)
+    );
+
+  if(conflict){
 
     alert(
-      "One demo position is already open.\n\n" +
-      "Close the current position before opening another."
+      "Sorry! କିଛି seat ଅନ୍ୟ customer book କରିସାରିଛନ୍ତି।"
     );
 
+    location.reload();
     return;
   }
 
 
-  const entry =
-    Number(
-      document.getElementById("entry").value
-    );
+  /* Save booked seats locally */
 
-  const quantity =
-    Number(
-      document.getElementById("quantity").value
-    );
+  selectedSeats.forEach(seat=>{
+    bookedSeats.push(seat.id);
+  });
 
-  const sl =
-    Number(
-      document.getElementById("sl").value
-    );
-
-  const tp =
-    Number(
-      document.getElementById("tp").value
-    );
-
-
-  if(
-    !entry ||
-    !quantity ||
-    entry <= 0 ||
-    quantity <= 0
-  ){
-
-    alert("Please enter valid demo order values.");
-
-    return;
-
-  }
-
-
-  position = {
-
-    side:side,
-
-    symbol:currentSymbol,
-
-    entry:entry,
-
-    quantity:quantity,
-
-    sl:sl,
-
-    tp:tp,
-
-    pnl:0,
-
-    opened:new Date()
-
-  };
-
-
-  renderPosition();
-
-
-  alert(
-    "DEMO " +
-    side +
-    " opened.\n\n" +
-    currentSymbol +
-    "\nEntry: " +
-    entry +
-    "\nQuantity: " +
-    quantity +
-    "\n\nNo real money is involved."
+  localStorage.setItem(
+    "bookedSeats",
+    JSON.stringify(bookedSeats)
   );
 
-}
 
+  /* Ticket message */
 
-/* ================= CLOSE TRADE ================= */
+  const seatNames =
+    selectedSeats.map(x=>x.id).join(", ");
 
-function closeTrade(){
-
-  if(!position){
-    return;
-  }
-
-
-  const pnl =
-    Number(position.pnl);
-
-
-  balance += pnl;
-
-
-  history.unshift({
-
-    symbol:position.symbol,
-
-    side:position.side,
-
-    pnl:pnl,
-
-    time:new Date()
-
-  });
-
-
-  position = null;
-
-
-  renderBalance();
-
-  renderPosition();
-
-  renderHistory();
-
-}
-
-
-/* ================= SIMULATE P&L ================= */
-
-function simulatePrice(){
-
-  if(!position){
-    return;
-  }
-
-
-  const movement =
-    (Math.random() - 0.48) *
-    position.entry *
-    0.001;
-
-
-  let price =
-    position.entry + movement;
-
-
-  if(position.side === "BUY"){
-
-    position.pnl =
-      (price - position.entry) *
-      position.quantity;
-
-  }else{
-
-    position.pnl =
-      (position.entry - price) *
-      position.quantity;
-
-  }
-
-
-  renderPosition();
-
-}
-
-
-setInterval(
-  simulatePrice,
-  1000
-);
-
-
-/* ================= BALANCE ================= */
-
-function renderBalance(){
-
-  document.getElementById(
-    "balance"
-  ).textContent =
-    "₹" +
-    balance.toLocaleString(
-      "en-IN",
-      {
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-      }
+  const total =
+    selectedSeats.reduce(
+      (sum,x)=>sum+x.price,0
     );
 
-}
+  document.getElementById("ticketText").innerHTML =
 
-
-/* ================= POSITION ================= */
-
-function renderPosition(){
-
-  const box =
-    document.getElementById(
-      "positionBox"
-    );
-
-  const status =
-    document.getElementById(
-      "positionStatus"
-    );
-
-
-  if(!position){
-
-    status.textContent =
-      "NONE";
-
-    box.innerHTML =
-      '<div class="empty">No open demo position.</div>';
-
-    return;
-
-  }
-
-
-  status.textContent =
-    position.side;
-
-
-  const pnlClass =
-    position.pnl >= 0
-      ? "green"
-      : "red";
-
-
-  box.innerHTML = `
-
-    <div class="position">
-
-      <div class="position-head">
-
-        <strong>
-          ${position.symbol}
-        </strong>
-
-        <strong class="${pnlClass}">
-          ${position.pnl >= 0 ? "+" : ""}
-          ₹${position.pnl.toFixed(2)}
-        </strong>
-
-      </div>
-
-      <div class="position-grid">
-
-        <div class="pos-item">
-          <div class="pos-label">Side</div>
-          <div class="pos-value">
-            ${position.side}
-          </div>
-        </div>
-
-        <div class="pos-item">
-          <div class="pos-label">Entry</div>
-          <div class="pos-value">
-            ${position.entry}
-          </div>
-        </div>
-
-        <div class="pos-item">
-          <div class="pos-label">Quantity</div>
-          <div class="pos-value">
-            ${position.quantity}
-          </div>
-        </div>
-
-        <div class="pos-item">
-          <div class="pos-label">Stop Loss</div>
-          <div class="pos-value red">
-            ${position.sl || "-"}
-          </div>
-        </div>
-
-        <div class="pos-item">
-          <div class="pos-label">Take Profit</div>
-          <div class="pos-value green">
-            ${position.tp || "-"}
-          </div>
-        </div>
-
-        <div class="pos-item">
-          <div class="pos-label">Mode</div>
-          <div class="pos-value yellow">
-            DEMO
-          </div>
-        </div>
-
-      </div>
-
-      <button
-        onclick="closeTrade()"
-        style="
-          width:100%;
-          margin-top:8px;
-          border:0;
-          background:#334155;
-          color:white;
-          padding:8px;
-          border-radius:6px;
-          font-size:9px;
-          font-weight:bold;
-        ">
-
-        CLOSE DEMO POSITION
-
-      </button>
-
-    </div>
+  `
+  <b>Name:</b> ${name}<br>
+  <b>Mobile:</b> ${mobile}<br>
+  <b>Seat:</b> ${seatNames}<br>
+  <b>Amount:</b> ₹${total}<br>
+  <b>UTR:</b> ${utr}<br>
+  <b>Status:</b> ⏳ Payment Verification Pending
   `;
 
-}
+  document.getElementById("ticket")
+    .style.display="block";
 
+  alert(
+    "Booking submitted! Payment verification ପରେ Confirmed ହେବ।"
+  );
 
-/* ================= HISTORY ================= */
-
-function renderHistory(){
-
-  const box =
-    document.getElementById(
-      "history"
-    );
-
-  document.getElementById(
-    "tradeCount"
-  ).textContent =
-    history.length;
-
-
-  if(history.length === 0){
-
-    box.innerHTML =
-      '<div class="empty">No demo trades yet.</div>';
-
-    return;
-
-  }
-
-
-  box.innerHTML =
-    history.map(function(item){
-
-      const cls =
-        item.pnl >= 0
-          ? "green"
-          : "red";
-
-      return `
-
-        <div class="history-row">
-
-          <span>
-            ${item.side}
-          </span>
-
-          <span>
-            ${item.symbol}
-          </span>
-
-          <strong class="${cls}">
-            ${item.pnl >= 0 ? "+" : ""}
-            ₹${item.pnl.toFixed(2)}
-          </strong>
-
-        </div>
-
-      `;
-
-    }).join("");
-
-}
-
-
-/* ================= FULLSCREEN ================= */
-
-function toggleFullscreen(){
-
-  const chart =
-    document.querySelector(".chart");
-
-  if(!document.fullscreenElement){
-
-    chart.requestFullscreen?.();
-
-  }else{
-
-    document.exitFullscreen?.();
-
-  }
-
-}
-
-
-/* ================= LEARNING SIGNAL ================= */
-
-function updateSignal(){
-
-  const signals = [
-
-    {
-      title:"🟡 WAIT",
-      cls:"yellow",
-      reason:
-        "Confirmation incomplete. Wait for market structure + zone reaction + candle close."
-    },
-
-    {
-      title:"🟢 BUY SETUP",
-      cls:"green",
-      reason:
-        "Learning setup: support reaction detected. Still requires confirmation before a demo entry."
-    },
-
-    {
-      title:"🔴 SELL SETUP",
-      cls:"red",
-      reason:
-        "Learning setup: resistance reaction detected. Still requires confirmation before a demo entry."
-    }
-
-  ];
-
-
-  const item =
-    signals[
-      Math.floor(
-        Math.random() *
-        signals.length
-      )
-    ];
-
-
-  const main =
-    document.getElementById(
-      "signalMain"
-    );
-
-  const reason =
-    document.getElementById(
-      "signalReason"
-    );
-
-
-  main.textContent =
-    item.title;
-
-  main.className =
-    "signal-main " +
-    item.cls;
-
-  reason.textContent =
-    item.reason;
-
-}
-
-
-setInterval(
-  updateSignal,
-  8000
-);
-
-
-/* ================= START ================= */
-
-renderBalance();
-
-renderPosition();
-
-renderHistory();
-
-console.log(
-  "Babulu Trading Demo started."
-);
-
-</script>
-
-<script>
-if ("serviceWorker" in navigator) {
-
-  window.addEventListener("load", function () {
-
-    navigator.serviceWorker.register("./sw.js")
-      .then(function () {
-        console.log("Service Worker ready");
-      })
-      .catch(function (error) {
-        console.error("Service Worker error:", error);
-      });
-
+  window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:"smooth"
   });
-
 }
+
 </script>
 
 </body>
