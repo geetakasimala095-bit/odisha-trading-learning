@@ -7,6 +7,7 @@
 <title>Konark Gananatya | Online Ticket Booking</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -21,12 +22,12 @@ body{
 
 header{
   text-align:center;
-  padding:20px 10px;
-  background:linear-gradient(135deg,#7b0000,#e58b00);
+  padding:22px 10px;
+  background:linear-gradient(135deg,#680000,#e39b00);
 }
 
 header h1{
-  font-size:25px;
+  font-size:26px;
   margin-bottom:8px;
 }
 
@@ -37,128 +38,184 @@ header p{
 .container{
   max-width:1100px;
   margin:auto;
-  padding:15px;
+  padding:12px;
 }
 
+/* SHOW */
+
 .show{
+  text-align:center;
   background:#151515;
-  border:1px solid #333;
-  padding:16px;
+  padding:18px;
   border-radius:12px;
   margin-bottom:15px;
-  text-align:center;
+  border:1px solid #333;
 }
 
 .show h2{
   color:#ffd43b;
-  margin-bottom:8px;
-  font-size:19px;
+  margin-bottom:10px;
+  font-size:20px;
 }
 
-.show p{
-  margin:5px 0;
+.nataka{
+  color:#ffb000;
+  font-size:23px;
+  font-weight:bold;
+  margin:12px 0;
 }
+
+.date{
+  color:#00ff88;
+  font-weight:bold;
+  margin:7px;
+}
+
+/* POSTER */
+
+.poster-box{
+  width:100%;
+  max-width:900px;
+  margin:15px auto 20px;
+  background:#111;
+  padding:5px;
+  border-radius:12px;
+  border:2px solid #e0a000;
+  overflow:hidden;
+}
+
+.nataka-poster{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+}
+
+/* STAGE */
 
 .stage{
   width:90%;
   margin:20px auto;
   padding:15px;
   text-align:center;
-  border-radius:8px;
   font-weight:bold;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#5d0000,#d89b00,#5d0000);
+  letter-spacing:3px;
+  border-radius:8px;
+  background:linear-gradient(
+    90deg,
+    #600000,
+    #e0a000,
+    #600000
+  );
 }
 
-.info{
+/* LEGEND */
+
+.legend{
   display:flex;
   justify-content:center;
-  gap:10px;
+  gap:8px;
   flex-wrap:wrap;
   margin:15px 0;
 }
 
-.info span{
+.legend span{
   padding:8px 12px;
   border-radius:6px;
-  font-size:13px;
+  font-size:12px;
 }
 
 .available{
-  background:#178c42;
+  background:#168b40;
 }
 
-.selectedBox{
+.selected{
   background:#ff9800;
   color:#000;
 }
 
-.bookedBox{
+.booked{
   background:#777;
 }
+
+/* BLOCK */
 
 .block{
   background:#111;
   border:1px solid #333;
   border-radius:12px;
   margin:18px 0;
-  padding:15px;
+  padding:10px 5px 18px;
   overflow-x:auto;
 }
 
 .block h3{
-  color:#ffcc00;
   text-align:center;
-  margin-bottom:12px;
-  font-size:18px;
+  color:#ffcc00;
+  margin:8px 0 5px;
+  font-size:19px;
 }
+
+.price-info{
+  text-align:center;
+  color:#aaa;
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+/* ROW */
 
 .row{
   display:flex;
-  gap:5px;
-  margin-bottom:6px;
   justify-content:center;
-  min-width:650px;
-}
-
-.row-number{
-  width:30px;
-  min-width:30px;
-  height:34px;
-  display:flex;
   align-items:center;
-  justify-content:center;
-  color:#aaa;
-  font-size:11px;
-  font-weight:bold;
+  gap:4px;
+  margin-bottom:5px;
+  min-width:620px;
 }
 
-.seat{
-  width:36px;
-  height:34px;
-  border:0;
-  border-radius:5px;
-  background:#178c42;
-  color:#fff;
-  cursor:pointer;
+.rowno{
+  width:28px;
+  min-width:28px;
+  height:32px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#aaa;
   font-size:10px;
   font-weight:bold;
+}
+
+/* SEAT */
+
+.seat{
+  width:37px;
+  height:32px;
+  border:0;
+  border-radius:5px;
+  background:#168b40;
+  color:white;
+  font-size:9px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .seat:hover{
   transform:scale(1.04);
 }
 
-.seat.selected{
+.seat.selected-seat{
   background:#ff9800;
   color:#000;
 }
 
-.seat.booked{
+.seat.booked-seat{
   background:#777;
   color:#ddd;
   cursor:not-allowed;
 }
+
+/* BOOKING */
 
 .booking{
   background:#151515;
@@ -174,12 +231,12 @@ header p{
 
 input{
   width:100%;
-  padding:12px;
-  margin:7px 0;
-  border-radius:7px;
+  padding:13px;
+  margin:6px 0;
+  background:#0b0b0b;
+  color:white;
   border:1px solid #555;
-  background:#0d0d0d;
-  color:#fff;
+  border-radius:7px;
   outline:none;
 }
 
@@ -187,540 +244,772 @@ input:focus{
   border-color:#ffb000;
 }
 
-#selectedSeats{
+.selected-list{
+  background:#0b0b0b;
+  padding:12px;
   margin-top:10px;
-  padding:10px;
-  background:#0d0d0d;
   border-radius:7px;
-  color:#fff;
-  line-height:1.5;
+  line-height:1.7;
+  font-size:14px;
 }
 
 .total{
-  font-size:20px;
   text-align:center;
-  margin:15px 0;
   color:#00ff88;
+  font-size:22px;
   font-weight:bold;
+  margin:15px 0;
 }
 
-.payment{
+/* PAYMENT */
+
+.demo-payment{
   margin-top:15px;
   padding:18px;
   border:1px dashed #ffb000;
   border-radius:10px;
   text-align:center;
-  background:#101010;
 }
 
-.payment h3{
+.demo-payment h3{
   color:#ffb000;
-  margin-bottom:8px;
-  font-size:21px;
+  margin-bottom:10px;
 }
 
-.owner{
-  color:#00ff88;
-  font-size:17px;
+.demo-box{
+  padding:18px;
+  margin:12px 0;
+  border-radius:8px;
+  background:#252000;
+  color:#ffd43b;
   font-weight:bold;
-  margin:10px 0;
 }
 
-.qr-image{
-  margin:15px auto;
-  width:220px;
-  height:220px;
-  max-width:100%;
-  object-fit:contain;
-  border-radius:12px;
-  border:3px solid #fff;
-  display:block;
-  background:#fff;
-  padding:8px;
-}
+/* BUTTON */
 
-.qr-note{
-  color:#00ff88;
-  font-weight:bold;
-  margin:8px 0;
-  line-height:1.5;
-}
-
-.upi-warning{
-  color:#ffcc00;
-  font-size:13px;
-  margin-top:8px;
-}
-
-button.book{
+.book-btn{
   width:100%;
   padding:14px;
   margin-top:15px;
   border:0;
   border-radius:8px;
-  background:#e09a00;
+  background:#e5a000;
   color:#000;
   font-size:17px;
   font-weight:bold;
   cursor:pointer;
 }
 
-button.book:hover{
+.book-btn:hover{
   background:#ffc107;
 }
+
+/* TICKET */
 
 .ticket{
   display:none;
   margin-top:20px;
   padding:20px;
-  background:#fff;
+  background:white;
   color:#111;
   border-radius:12px;
   text-align:center;
 }
 
 .ticket h2{
-  color:#8b0000;
-  margin-bottom:12px;
+  color:#850000;
+  margin-bottom:15px;
 }
 
-.status{
-  margin-top:12px;
+.ticket-info{
+  line-height:1.8;
+  font-size:15px;
+}
+
+.success{
+  margin-top:15px;
   padding:10px;
+  background:#d4edda;
+  color:#155724;
   border-radius:7px;
-  background:#fff3cd;
-  color:#856404;
   font-weight:bold;
 }
 
-.reset{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  background:#333;
-  color:#fff;
-  border:1px solid #555;
-  border-radius:7px;
-  cursor:pointer;
-}
+/* MOBILE */
 
 @media(max-width:600px){
 
-  .container{
-    padding:8px;
+  header h1{
+    font-size:21px;
   }
 
-  .block{
-    padding:10px 5px;
+  .nataka{
+    font-size:18px;
   }
 
   .seat{
-    width:32px;
-    height:32px;
-    font-size:9px;
+    width:31px;
+    height:30px;
+    font-size:8px;
   }
 
   .row{
     gap:3px;
   }
 
-  .row-number{
+  .rowno{
     width:24px;
     min-width:24px;
   }
 
-  header h1{
-    font-size:20px;
-  }
-
-  .qr-image{
-    width:200px;
-    height:200px;
-  }
 }
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- HEADER -->
+
 <header>
-  <h1>🎭 KONARK GANANATYA</h1>
-  <p>“ତୁ ବୋଧେ ମୋ ଭାଗ୍ୟରେ ନାହୁଁ”</p>
+
+  <h1>
+    🎭 KONARK GANANATYA
+  </h1>
+
+  <p>
+    ONLINE TICKET BOOKING
+  </p>
+
 </header>
+
 
 <div class="container">
 
-  <div class="show">
-    <h2>MAA GAJALAXMI PUJA JATRA COMMITTEE</h2>
-    <p>📍 Chitraposi, Mayurbhanj, Odisha</p>
-    <p>📅 02.11.2026</p>
-    <p>🎭 One Night Jatra Show</p>
-    <p>🎟️ A–I Block | 22 Rows × 15 Seats</p>
+
+<!-- SHOW DETAILS -->
+
+<div class="show">
+
+  <h2>
+    MAA GAJALAXMI PUJA JATRA COMMITTEE
+  </h2>
+
+  <div class="nataka">
+    “ତୁ ବୋଧେ ମୋ ଭାଗ୍ୟରେ ନାହୁଁ”
   </div>
 
-  <div class="stage">
-    🎭 STAGE
+  <p class="date">
+    📅 02.11.2026
+  </p>
+
+  <p>
+    📍 Chitraposi, Mayurbhanj, Odisha
+  </p>
+
+  <p>
+    🎭 One Night Jatra Show
+  </p>
+
+</div>
+
+
+<!-- NATaka POSTER -->
+
+<div class="poster-box">
+
+  <img
+    src="1000183318.jpg"
+    alt="Konark Gananatya Nataka Poster"
+    class="nataka-poster"
+  >
+
+</div>
+
+
+<!-- STAGE -->
+
+<div class="stage">
+  🎭 STAGE
+</div>
+
+
+<!-- LEGEND -->
+
+<div class="legend">
+
+  <span class="available">
+    🟢 Available
+  </span>
+
+  <span class="selected">
+    🟠 Selected
+  </span>
+
+  <span class="booked">
+    ⚪ Booked
+  </span>
+
+</div>
+
+
+<!-- SEAT AREA -->
+
+<div id="seatArea"></div>
+
+
+<!-- BOOKING -->
+
+<div class="booking">
+
+  <h2>
+    🎟️ Book Your Ticket
+  </h2>
+
+
+  <input
+    id="name"
+    type="text"
+    placeholder="Enter Your Name"
+  >
+
+
+  <input
+    id="mobile"
+    type="tel"
+    maxlength="10"
+    inputmode="numeric"
+    placeholder="Enter Mobile Number"
+  >
+
+
+  <!-- SELECTED SEATS -->
+
+  <div
+    class="selected-list"
+    id="selectedList"
+  >
+    Selected Seat: None
   </div>
 
-  <div class="info">
-    <span class="available">🟢 Available</span>
-    <span class="selectedBox">🟠 Selected</span>
-    <span class="bookedBox">⚪ Booked</span>
-  </div>
 
-  <div id="seatArea"></div>
+  <!-- TOTAL -->
 
-  <div class="booking">
+  <div class="total">
 
-    <h2>🎟️ Online Ticket Booking</h2>
-
-    <input
-      id="name"
-      type="text"
-      placeholder="Enter Your Name"
-    >
-
-    <input
-      id="mobile"
-      type="tel"
-      placeholder="Enter Mobile Number"
-      maxlength="10"
-      inputmode="numeric"
-    >
-
-    <div id="selectedSeats">
-      Selected Seat: None
-    </div>
-
-    <div class="total">
-      Total Amount: ₹<span id="total">0</span>
-    </div>
-
-    <div class="payment">
-
-      <h3>💳 UPI PAYMENT</h3>
-
-      <div class="owner">
-        Account Name: Geeta Kasimala
-      </div>
-
-      <p>
-        ତଳେ ଥିବା QR Code Scan କରି
-        payment କରନ୍ତୁ।
-      </p>
-
-      <img
-        src="1000186943.jpg"
-        alt="UPI QR Code - Geeta Kasimala"
-        class="qr-image"
-        onerror="
-          this.style.display='none';
-          document.getElementById('qrError').style.display='block';
-        "
-      >
-
-      <p id="qrError"
-         style="
-         display:none;
-         color:#ff5555;
-         font-weight:bold;">
-        ⚠️ QR Code ମିଳୁନାହିଁ।
-        <br>
-        1000186943.jpg କୁ index.html
-        ସହିତ same folderରେ ରଖନ୍ତୁ।
-      </p>
-
-      <p class="qr-note">
-        ✅ Payment କରିବା ପରେ
-        UTR / Transaction ID ଦିଅନ୍ତୁ।
-      </p>
-
-      <input
-        id="utr"
-        type="text"
-        placeholder="Enter UTR / Transaction ID"
-        autocomplete="off"
-      >
-
-      <p class="upi-warning">
-        ⚠️ Payment କରିବା ପୂର୍ବରୁ
-        amount ଏବଂ receiver name ଯାଞ୍ଚ କରନ୍ତୁ।
-      </p>
-
-    </div>
-
-    <button class="book" onclick="submitBooking()">
-      🎟️ Submit Booking
-    </button>
+    Total Amount:
+    ₹<span id="total">0</span>
 
   </div>
 
-  <div class="ticket" id="ticket">
 
-    <h2>🎟️ BOOKING SUBMITTED</h2>
+  <!-- DEMO PAYMENT -->
 
-    <p id="ticketText"></p>
+  <div class="demo-payment">
 
-    <div class="status">
-      ⏳ Payment Verification Pending
-    </div>
-
-    <br>
+    <h3>
+      💳 DEMO PAYMENT
+    </h3>
 
     <p>
-      Admin payment verify କରିବା ପରେ
-      Ticket Confirmed ହେବ।
+      ଏହା Demo App।
+      ବର୍ତ୍ତମାନ QR Payment ଦରକାର ନାହିଁ।
     </p>
+
+
+    <div class="demo-box">
+
+      💰 Demo Payment Successful
+
+      <br>
+
+      UTR:
+      DEMO123456
+
+    </div>
+
+
+    <input
+      id="utr"
+      type="text"
+      value="DEMO123456"
+      placeholder="Enter Demo UTR"
+    >
+
+  </div>
+
+
+  <!-- BOOK BUTTON -->
+
+  <button
+    class="book-btn"
+    onclick="bookTicket()"
+  >
+
+    🎟️ CONFIRM DEMO BOOKING
+
+  </button>
+
+</div>
+
+
+<!-- TICKET -->
+
+<div
+  class="ticket"
+  id="ticket"
+>
+
+  <h2>
+    🎟️ DEMO TICKET
+  </h2>
+
+
+  <div
+    class="ticket-info"
+    id="ticketInfo"
+  ></div>
+
+
+  <div class="success">
+
+    ✅ DEMO BOOKING SUCCESSFUL
 
   </div>
 
 </div>
 
 
+</div>
+
+
+
 <script>
 
-/* =========================
-   BLOCK + PRICE SETTINGS
-========================= */
+
+/* ==========================================
+   BLOCKS
+========================================== */
 
 const blocks = [
-  {name:"A", price:300},
-  {name:"B", price:300},
-  {name:"C", price:250},
-  {name:"D", price:250},
-  {name:"E", price:200},
-  {name:"F", price:200},
-  {name:"G", price:150},
-  {name:"H", price:150},
-  {name:"I", price:150}
+
+  {name:"A"},
+  {name:"B"},
+  {name:"C"},
+  {name:"D"},
+  {name:"E"},
+  {name:"F"},
+  {name:"G"},
+  {name:"H"},
+  {name:"I"}
+
 ];
 
-const rowsPerBlock = 22;
-const seatsPerRow = 15;
+
+/* ==========================================
+   SEAT SETTINGS
+========================================== */
+
+const ROWS = 22;
+
+const SEATS = 15;
 
 
-/* =========================
+/*
+  Row 1–5  = ₹400
+  Row 6–22 = ₹300
+*/
+
+function getSeatPrice(row){
+
+  return row <= 5 ? 400 : 300;
+
+}
+
+
+/* ==========================================
    BOOKED SEATS
-========================= */
+========================================== */
 
 let bookedSeats =
+
   JSON.parse(
-    localStorage.getItem("bookedSeats") || "[]"
+
+    localStorage.getItem(
+      "demoBookedSeats"
+    ) || "[]"
+
   );
+
+
+/* ==========================================
+   SELECTED SEATS
+========================================== */
 
 let selectedSeats = [];
 
+
+/* ==========================================
+   SEAT AREA
+========================================== */
+
 const seatArea =
-  document.getElementById("seatArea");
+
+  document.getElementById(
+    "seatArea"
+  );
 
 
-/* =========================
+/* ==========================================
    CREATE ALL BLOCKS
-========================= */
+========================================== */
 
-blocks.forEach(blockData => {
+blocks.forEach(block => {
 
-  const block =
-    document.createElement("div");
 
-  block.className = "block";
+  const blockDiv =
+
+    document.createElement(
+      "div"
+    );
+
+
+  blockDiv.className =
+    "block";
+
+
+  /* BLOCK TITLE */
 
   const title =
-    document.createElement("h3");
+
+    document.createElement(
+      "h3"
+    );
+
 
   title.innerText =
-    `${blockData.name} BLOCK — ₹${blockData.price} | 22 ROW × 15 SEAT`;
 
-  block.appendChild(title);
-
-
-  for(let row = 1; row <= rowsPerBlock; row++){
-
-    const seatRow =
-      document.createElement("div");
-
-    seatRow.className = "row";
+    `${block.name} BLOCK`;
 
 
-    const rowNumber =
-      document.createElement("div");
-
-    rowNumber.className = "row-number";
-
-    rowNumber.innerText = row;
-
-    seatRow.appendChild(rowNumber);
+  blockDiv.appendChild(
+    title
+  );
 
 
-    for(let seatNo = 1; seatNo <= seatsPerRow; seatNo++){
+  /* PRICE INFO */
 
-      /*
-        Example:
-        A-R1-S1
-        A-R1-S2
-        ...
-        A-R22-S15
-      */
+  const priceInfo =
 
-      const seatID =
-        `${blockData.name}-R${row}-S${seatNo}`;
-
-      const seat =
-        document.createElement("button");
-
-      seat.className = "seat";
-
-      seat.innerText =
-        `${row}-${seatNo}`;
+    document.createElement(
+      "div"
+    );
 
 
-      /* Already booked */
+  priceInfo.className =
+    "price-info";
 
-      if(bookedSeats.includes(seatID)){
 
-        seat.classList.add("booked");
+  priceInfo.innerText =
+    "Row 1–5 = ₹400  |  Row 6–22 = ₹300";
 
-        seat.disabled = true;
+
+  blockDiv.appendChild(
+    priceInfo
+  );
+
+
+  /* 22 ROWS */
+
+  for(
+    let r = 1;
+    r <= ROWS;
+    r++
+  ){
+
+
+    const rowDiv =
+
+      document.createElement(
+        "div"
+      );
+
+
+    rowDiv.className =
+      "row";
+
+
+    /* ROW NUMBER */
+
+    const rowNo =
+
+      document.createElement(
+        "div"
+      );
+
+
+    rowNo.className =
+      "rowno";
+
+
+    rowNo.innerText =
+      r;
+
+
+    rowDiv.appendChild(
+      rowNo
+    );
+
+
+    /* PRICE */
+
+    const price =
+      getSeatPrice(r);
+
+
+    /* 15 SEATS */
+
+    for(
+      let s = 1;
+      s <= SEATS;
+      s++
+    ){
+
+
+      const id =
+
+        `${block.name}-R${r}-S${s}`;
+
+
+      const button =
+
+        document.createElement(
+          "button"
+        );
+
+
+      button.className =
+        "seat";
+
+
+      button.innerText =
+        `${r}-${s}`;
+
+
+      button.title =
+
+        `${block.name} Block | Row ${r} | Seat ${s} | ₹${price}`;
+
+
+      /* BOOKED */
+
+      if(
+        bookedSeats.includes(id)
+      ){
+
+        button.classList.add(
+          "booked-seat"
+        );
+
+        button.disabled = true;
 
       }
 
 
-      /* Seat click */
+      /* SELECT */
 
-      seat.onclick = function(){
+      button.onclick = function(){
 
         selectSeat(
-          seatID,
-          blockData.price,
-          seat,
-          blockData.name,
-          row,
-          seatNo
+
+          id,
+          block.name,
+          r,
+          s,
+          price,
+          button
+
         );
 
       };
 
 
-      seatRow.appendChild(seat);
+      rowDiv.appendChild(
+        button
+      );
 
     }
 
-    block.appendChild(seatRow);
+
+    blockDiv.appendChild(
+      rowDiv
+    );
 
   }
 
-  seatArea.appendChild(block);
+
+  seatArea.appendChild(
+    blockDiv
+  );
 
 });
 
 
-/* =========================
-   SELECT / UNSELECT SEAT
-========================= */
+/* ==========================================
+   SELECT / UNSELECT
+========================================== */
 
 function selectSeat(
+
   id,
-  price,
-  button,
   block,
   row,
-  seatNo
+  seat,
+  price,
+  button
+
 ){
 
-  const existing =
+
+  const exists =
+
     selectedSeats.find(
       x => x.id === id
     );
 
 
-  if(existing){
+  if(exists){
+
 
     selectedSeats =
+
       selectedSeats.filter(
         x => x.id !== id
       );
 
-    button.classList.remove("selected");
+
+    button.classList.remove(
+      "selected-seat"
+    );
+
 
   }
+
   else{
 
+
     selectedSeats.push({
+
       id:id,
-      price:price,
+
       block:block,
+
       row:row,
-      seatNo:seatNo
+
+      seat:seat,
+
+      price:price
+
     });
 
-    button.classList.add("selected");
+
+    button.classList.add(
+      "selected-seat"
+    );
 
   }
 
-  updateTotal();
+
+  updateBooking();
+
 }
 
 
-/* =========================
-   TOTAL
-========================= */
+/* ==========================================
+   UPDATE TOTAL
+========================================== */
 
-function updateTotal(){
+function updateBooking(){
 
   let total = 0;
 
-  selectedSeats.forEach(seat => {
 
-    total += seat.price;
+  selectedSeats.forEach(
+    x => {
 
-  });
+      total += x.price;
+
+    }
+  );
 
 
-  document.getElementById("total")
-    .innerText = total;
+  document.getElementById(
+    "total"
+  ).innerText = total;
 
 
-  if(selectedSeats.length){
+  if(
+    selectedSeats.length === 0
+  ){
 
-    document.getElementById("selectedSeats")
-      .innerHTML =
-      "<b>Selected Seats:</b><br>" +
-      selectedSeats
-        .map(x =>
-          `${x.block} Block — Row ${x.row} — Seat ${x.seatNo} — ₹${x.price}`
-        )
-        .join("<br>");
-
-  }
-  else{
-
-    document.getElementById("selectedSeats")
-      .innerText =
+    document.getElementById(
+      "selectedList"
+    ).innerText =
       "Selected Seat: None";
 
+    return;
+
   }
+
+
+  document.getElementById(
+    "selectedList"
+  ).innerHTML =
+
+    "<b>Selected Seats:</b><br>" +
+
+    selectedSeats.map(
+
+      x =>
+
+      `${x.block} Block — Row ${x.row} — Seat ${x.seat} — ₹${x.price}`
+
+    ).join("<br>");
 
 }
 
 
-/* =========================
-   SUBMIT BOOKING
-========================= */
+/* ==========================================
+   BOOK TICKET
+========================================== */
 
-function submitBooking(){
+function bookTicket(){
+
 
   const name =
-    document.getElementById("name")
-      .value.trim();
+
+    document.getElementById(
+      "name"
+    ).value.trim();
+
 
   const mobile =
-    document.getElementById("mobile")
-      .value.trim();
+
+    document.getElementById(
+      "mobile"
+    ).value.trim();
+
 
   const utr =
-    document.getElementById("utr")
-      .value.trim();
 
+    document.getElementById(
+      "utr"
+    ).value.trim();
+
+
+  /* NAME */
 
   if(!name){
 
@@ -729,169 +1018,248 @@ function submitBooking(){
     );
 
     return;
+
   }
 
 
-  if(!/^[0-9]{10}$/.test(mobile)){
+  /* MOBILE */
+
+  if(
+    !/^[0-9]{10}$/.test(
+      mobile
+    )
+  ){
 
     alert(
       "Valid 10 digit Mobile Number enter କରନ୍ତୁ।"
     );
 
     return;
+
   }
 
 
-  if(selectedSeats.length === 0){
+  /* SEAT */
+
+  if(
+    selectedSeats.length === 0
+  ){
 
     alert(
       "ଦୟାକରି ପ୍ରଥମେ Seat select କରନ୍ତୁ।"
     );
 
     return;
+
   }
 
+
+  /* UTR */
 
   if(!utr){
 
     alert(
-      "Payment କରି UTR / Transaction ID enter କରନ୍ତୁ।"
+      "Demo UTR enter କରନ୍ତୁ।"
     );
 
     return;
+
   }
 
 
-  /*
-    Double check:
-    If another booking already
-    contains the selected seat,
-    stop the booking.
-  */
+  /* CHECK CONFLICT */
 
   const conflict =
+
     selectedSeats.some(
-      seat =>
-        bookedSeats.includes(seat.id)
+
+      x =>
+        bookedSeats.includes(
+          x.id
+        )
+
     );
 
 
   if(conflict){
 
     alert(
-      "⚠️ Sorry! କିଛି Seat ଏହି ସମୟରେ book ହୋଇସାରିଛି।\n\nPage reload କରି ପୁଣି Seat select କରନ୍ତୁ।"
+      "⚠️ କିଛି Seat ଏହି ସମୟରେ book ହୋଇସାରିଛି।"
     );
 
     location.reload();
 
     return;
+
   }
 
 
-  /* =========================
-     SAVE BOOKED SEATS
-  ========================= */
+  /* SAVE */
 
-  selectedSeats.forEach(seat => {
+  selectedSeats.forEach(
 
-    bookedSeats.push(seat.id);
+    x => {
 
-  });
+      bookedSeats.push(
+        x.id
+      );
 
+    }
 
-  localStorage.setItem(
-    "bookedSeats",
-    JSON.stringify(bookedSeats)
   );
 
 
-  const seatNames =
-    selectedSeats
-      .map(x =>
-        `${x.block} Block / Row ${x.row} / Seat ${x.seatNo}`
-      )
-      .join("<br>");
+  localStorage.setItem(
 
+    "demoBookedSeats",
+
+    JSON.stringify(
+      bookedSeats
+    )
+
+  );
+
+
+  /* TOTAL */
 
   const total =
+
     selectedSeats.reduce(
+
       (sum,x) =>
         sum + x.price,
+
       0
+
     );
 
 
-  /* =========================
-     SHOW TICKET
-  ========================= */
+  /* SEATS */
 
-  document.getElementById("ticketText")
-    .innerHTML =
+  const seats =
+
+    selectedSeats.map(
+
+      x =>
+
+      `${x.block} Block — Row ${x.row} — Seat ${x.seat} — ₹${x.price}`
+
+    ).join("<br>");
+
+
+  /* TICKET */
+
+  document.getElementById(
+    "ticketInfo"
+  ).innerHTML =
 
     `
+
     <b>Name:</b>
     ${escapeHTML(name)}
-    <br><br>
+
+    <br>
 
     <b>Mobile:</b>
     ${escapeHTML(mobile)}
-    <br><br>
 
-    <b>Seat:</b>
     <br>
-    ${seatNames}
-    <br><br>
 
-    <b>Amount:</b>
-    ₹${total}
-    <br><br>
-
-    <b>UTR:</b>
-    ${escapeHTML(utr)}
-    <br><br>
-
-    <b>Receiver:</b>
-    Geeta Kasimala
-    <br><br>
-
-    <b>Show:</b>
+    <b>Nataka:</b>
     ତୁ ବୋଧେ ମୋ ଭାଗ୍ୟରେ ନାହୁଁ
-    <br><br>
+
+    <br>
 
     <b>Date:</b>
     02.11.2026
+
+    <br>
+
+    <b>Venue:</b>
+    Chitraposi, Mayurbhanj
+
+    <br>
+
+    <b>Seat:</b>
+
+    <br>
+
+    ${seats}
+
+    <br>
+
+    <b>Total Amount:</b>
+    ₹${total}
+
+    <br>
+
+    <b>UTR:</b>
+    ${escapeHTML(utr)}
+
+    <br>
+
+    <b>Payment:</b>
+    Demo Payment
+
     `;
 
 
-  document.getElementById("ticket")
-    .style.display = "block";
+  document.getElementById(
+    "ticket"
+  ).style.display =
+    "block";
 
 
   alert(
-    "Booking Submitted Successfully! ✅\n\nPayment verification ପରେ Ticket Confirmed ହେବ।"
+    "🎟️ Demo Ticket Booked Successfully! ✅"
   );
 
 
   window.scrollTo({
-    top:document.body.scrollHeight,
-    behavior:"smooth"
+
+    top:
+      document.body.scrollHeight,
+
+    behavior:
+      "smooth"
+
   });
 
 }
 
 
-/* =========================
-   SECURITY
-========================= */
+/* ==========================================
+   SAFE TEXT
+========================================== */
 
 function escapeHTML(value){
 
   return value
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
